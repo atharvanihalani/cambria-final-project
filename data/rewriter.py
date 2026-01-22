@@ -1,4 +1,5 @@
 import json
+from tqdm.asyncio import tqdm
 from config import client, REWRITER_MODEL
 
 MCQS_SYSTEM_PROMPT = """You are helping to rephrase evaluation benchmark questions to sound like natural user requests.
@@ -36,7 +37,7 @@ def rewrite_prompt(original_prompt, data_type: str | None):
 def rewrite_all(samples, data_type: str | None):
     new_samples = []
 
-    for i, sample in enumerate(samples):
+    for sample in tqdm(samples):
         sid = str(sample["id"])
         new_sample = {
             'id': sid,
