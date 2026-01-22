@@ -28,11 +28,6 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 
 
-
-
-
-
-
 def format_prompt(transcript: str, probe_question: str) -> str:
     """Format the transcript with the probe question."""
     return f"""{transcript}\n\n---\n\n{probe_question}"""
@@ -186,9 +181,6 @@ async def run_experiment(probe_question_idx: int = 0, n_samples: int = N_SAMPLES
 
 
 
-
-
-# %%
 
 
 

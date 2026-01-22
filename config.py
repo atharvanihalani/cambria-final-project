@@ -1,16 +1,18 @@
 """Configuration for evaluation awareness experiment."""
-
+# %%
 import os
 from pathlib import Path
 import openai
 from dotenv import load_dotenv
 
-load_dotenv(Path(__file__).parent.parent / ".env")
+load_dotenv(Path(__file__).parent / ".env")
 
 client = openai.OpenAI(
     base_url="https://openrouter.ai/api/v1",
     api_key=os.getenv("OPENROUTER_API_KEY"),
 )
+
+# %%
 
 # Probe questions from the paper (can add more later)
 PROBE_QUESTIONS = [
