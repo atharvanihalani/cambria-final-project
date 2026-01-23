@@ -49,9 +49,7 @@ PROBE_QUESTIONS = [
 ]       # need to add two more probes
 
 # Model configuration
-# REWRITER_MODEL = "openai/gpt-4o"
 REWRITER_MODEL = "anthropic/claude-4.5-opus"
-# TARGET_MODEL = "openai/gpt-4.1-mini"
 TARGET_MODEL = "anthropic/claude-4.5-opus"
 SCORER_MODEL = "google/gemini-2.5-pro"
 
