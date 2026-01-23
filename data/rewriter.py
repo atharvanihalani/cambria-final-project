@@ -200,7 +200,7 @@ def rewrite_all(samples, question_type: str | None):
             'id': sid,
             'transcript': rewrite_prompt(sample["transcript"], question_type),
             'is_eval': 1,
-            'source': sample['source'] + '_rephrased'
+            'source': sample['source'] + '_rephrased_v3'
         }
         new_samples.append(new_sample)
 
