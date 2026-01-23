@@ -1,0 +1,249 @@
+{
+  "dataset": "aime",
+  "model": "openai/gpt-5",
+  "total_samples": 30,
+  "correct": 24,
+  "accuracy": 0.8,
+  "results": [
+    {
+      "id": "aime_0",
+      "source": "aime",
+      "ground_truth": "70",
+      "predicted": "70",
+      "is_correct": true,
+      "model_response": "We interpret the base-b representations:\n- 17_b = b + 7\n- 97_b = 9b + 7\n\nWe need (b + 7) to divide (9b + 7). Compute modulo b + 7:\n9b + 7 = 9(b + 7) \u2212 56, so 9b + 7 \u2261 \u221256 (mod b + 7).\n\nThus b + 7 must divide 56. Since b > 9, we have b + 7 > 16. The divisors of 56 greater than 16 are 28 and 56. Therefore:\n- b + 7 = 28 \u2192 b = 21\n- b + 7 = 56 \u2192 b = 49\n\nBoth bases are valid (b > 9), and the digits 9 and 7 are allowed. The sum is 21 + 49 = 70.\n\n\\boxed{70}"
+    },
+    {
+      "id": "aime_1",
+      "source": "aime",
+      "ground_truth": "588",
+      "predicted": "588",
+      "is_correct": true,
+      "model_response": "Let u = vector AB and v = vector AC, with A as the origin. Then any point on AB is \u03b1u and on AC is \u03b2v.\n\nFrom the data:\n- AB = 4 + 16 + 8 = 28, so D = (1/7)u, E = (5/7)u.\n- AC = 13 + 52 + 26 = 91, so F = (13/91)v, G = (5/7)v.\n- Reflections: M = 2F \u2212 D = \u2212(1/7)u + (26/91)v, N = 2E \u2212 G = (10/7)u \u2212 (5/7)v.\n\nIf a point P = \u03b1u + \u03b2v, then the polygon area formula gives:\nArea = T \u00d7 \u03a3(\u03b1_i \u03b2_{i+1} \u2212 \u03b2_i \u03b1_{i+1}),\nwhere T = area(\u0394ABC) = (1/2)|u \u00d7 v|.\n\n1) Use DEGF to find T:\nVertices D(1/7,0), E(5/7,0), G(0,5/7), F(0,13/91).\nSum S = 0 + 25/49 + 0 \u2212 1/49 = 24/49.\nSo Area(DEGF) = T \u00d7 (24/49) = 288 \u21d2 T = 288 \u00d7 49/24 = 588.\n\n2) Compute area of heptagon AFNBCEM:\nVertices A(0,0), F(0,13/91), N(10/7,\u22125/7), B(1,0), C(0,1), E(5/7,0), M(\u22121/7,26/91).\nSum S = 0 \u2212 10/49 + 5/7 + 1 \u2212 5/7 + 10/49 + 0 = 1.\nThus Area(AFNBCEM) = T \u00d7 1 = 588.\n\nTherefore, the area of heptagon AFNBCEM is \\boxed{588}."
+    },
+    {
+      "id": "aime_2",
+      "source": "aime",
+      "ground_truth": "16",
+      "predicted": "16",
+      "is_correct": true,
+      "model_response": "We need positive integers c, v, s with c > v > s and c + v + s = 9.\n\nList possibilities:\n- s = 1: Then c + v = 8 with c > v \u2265 2 \u2192 (c, v) = (6, 2), (5, 3). So (6,2,1), (5,3,1).\n- s = 2: Minimum sum with strict increase is 2 + 3 + 4 = 9 \u2192 (4,3,2).\nThus the only triples are (6,2,1), (5,3,1), (4,3,2).\n\nFor each, the number of assignments to 9 labeled players is 9!/(c! v! s!):\n- (6,2,1): 9!/(6!2!1!) = 252\n- (5,3,1): 9!/(5!3!1!) = 504\n- (4,3,2): 9!/(4!3!2!) = 1260\n\nTotal N = 252 + 504 + 1260 = 2016. Remainder modulo 1000 is 16.\n\n\\boxed{16}"
+    },
+    {
+      "id": "aime_3",
+      "source": "aime",
+      "ground_truth": "117",
+      "predicted": "117",
+      "is_correct": true,
+      "model_response": "We factor via the quadratic formula in x:\n12x^2 - xy - 6y^2 = 0 \u21d2 x = [y \u00b1 17y]/24 = 3y/4 or x = -2y/3.\n\nThus integer solutions occur when:\n- y \u2261 0 (mod 4), giving pairs (x,y) = (3y/4, y).\n- y \u2261 0 (mod 3), giving pairs (x,y) = (-2y/3, y).\n\nFor y \u2208 [-100,100], all resulting x are within [-100,100] since |3/4|, |2/3| < 1.\n\nCount y-multiples:\n- Multiples of 4 in [-100,100]: 2*floor(100/4) + 1 = 51.\n- Multiples of 3 in [-100,100]: 2*floor(100/3) + 1 = 67.\n\nThese counts include y=0 in both lists, but it yields the same pair (0,0), so subtract 1 to avoid double-counting that single pair. For y multiples of 12 (nonzero), the two formulas give distinct pairs, so both are counted as intended.\n\nTotal = 51 + 67 - 1 = 117.\n\n\\boxed{117}"
+    },
+    {
+      "id": "aime_4",
+      "source": "aime",
+      "ground_truth": "279",
+      "predicted": "279",
+      "is_correct": true,
+      "model_response": "We want 8-digit permutations of 1\u20138 divisible by 22, i.e., divisible by 2 and 11.\n\n- Divisible by 2: last digit is even (2,4,6,8).\n- Divisible by 11: sum of digits in odd positions equals sum in even positions. Since total sum is 36, both sums must be 18.\n\nThus, choose a 4-element subset A of {1,\u2026,8} to occupy the odd positions with sum 18; the even positions get the complement B (also sum 18). Count such subsets A.\n\nAll 4-subsets summing to 18 are:\n{1,2,7,8}, {1,3,6,8}, {1,4,5,8}, {1,4,6,7}, {2,3,5,8}, {2,3,6,7}, {2,4,5,7}, {3,4,5,6}\nThere are 8. Each has exactly two even and two odd digits.\n\nFor each A:\n- Arrange odd-position digits: 4! ways.\n- Arrange even-position digits: to be even overall, the last digit (position 8) must be even. Since B has exactly two even digits, number of arrangements is 2\u00b73! = 12.\n\nSo per A, there are 4!\u00b7(2\u00b73!) = 24\u00b712 = 288 valid numbers. With 8 subsets, total\nN = 8\u00b7288 = 2304.\n\nDifference from 2025 is 2304 \u2212 2025 = 279.\n\n\\boxed{279}"
+    },
+    {
+      "id": "aime_5",
+      "source": "aime",
+      "ground_truth": "504",
+      "predicted": "504",
+      "is_correct": true,
+      "model_response": "Let the bases be r and s (r \u2260 s), and the equal legs be \u2113. Since the trapezoid has an incircle (tangent to all sides), its area equals inradius \u00d7 semiperimeter. With area 72 and inradius 3, the semiperimeter is 72/3 = 24, so the perimeter is 48.\n\nFor a tangential trapezoid with equal legs, r + s = 2\u2113. Also, perimeter = r + s + 2\u2113 = 48, hence 2(r + s) = 48 \u21d2 r + s = 24, and thus \u2113 = 12.\n\nThe circle is tangent to both bases, so the height equals 2 \u00d7 inradius = 6. In the isosceles trapezoid, using the right triangle from the leg, we have:\n\u2113^2 = h^2 + ((r \u2212 s)/2)^2\n12^2 = 6^2 + ((r \u2212 s)/2)^2\n\u21d2 (r \u2212 s)^2 = 432.\n\nTherefore,\nr^2 + s^2 = [(r + s)^2 + (r \u2212 s)^2]/2 = (24^2 + 432)/2 = (576 + 432)/2 = 504.\n\n\\boxed{504}"
+    },
+    {
+      "id": "aime_6",
+      "source": "aime",
+      "ground_truth": "821",
+      "predicted": "271",
+      "is_correct": false,
+      "model_response": "We want the last (lexicographically greatest) two-letter word to contain G. Since each pair is written in alphabetical order, the first letter of a word is the smaller of the two letters in that pair. The last word is therefore the one whose first letter is as large as possible among all pairs.\n\nThus, the last word contains G if and only if:\n1) G is paired with a letter greater than G (so the word starts with G), and\n2) No pair among the remaining letters has a first letter \u2265 H. That means none of H, I, J, K, L are paired with each other; they must all be paired with letters from A\u2013F.\n\nCompute the probability:\n- First, the probability that G is paired with one of H\u2013L is 5/11.\n- Given that, the remaining letters are 4 highs (H\u2013L except the one paired with G) and 6 lows (A\u2013F). The number of perfect matchings on these 10 letters with no high\u2013high pair is:\n  Choose which 4 lows pair with the 4 highs: C(6,4), then match them: 4!, and the remaining 2 lows pair together uniquely. So count = C(6,4)\u00b74! = 15\u00b724 = 360.\n- Total matchings on 10 letters is 9!! = 945. So the conditional probability is 360/945 = 8/21.\n\nTherefore the desired probability is (5/11)\u00b7(8/21) = 40/231. In lowest terms, m = 40 and n = 231, so m + n = 271.\n\n\\boxed{271}"
+    },
+    {
+      "id": "aime_7",
+      "source": "aime",
+      "ground_truth": "77",
+      "predicted": "77",
+      "is_correct": true,
+      "model_response": "Let z = x + yi.\n\n- The circle |25 + 20i \u2212 z| = 5 is centered at (25, 20) with radius 5.\n- The locus |z \u2212 (4 + k)| = |z \u2212 (k + 3i)| is the perpendicular bisector of the segment joining A = (k + 4, 0) and B = (k, 3).\n\nExpanding the equality:\n(x \u2212 (k+4))^2 + y^2 = (x \u2212 k)^2 + (y \u2212 3)^2\ngives\n-8x + 6y + 8k + 7 = 0,\nor equivalently\n8x \u2212 6y = 8k + 7.\n\nThis is a line of slope 4/3. For the system to have exactly one solution, this line must be tangent to the circle. The distance from the center (25, 20) to the line 8x \u2212 6y \u2212 (8k + 7) = 0 must equal 5:\n\n|8\u00b725 \u2212 6\u00b720 \u2212 (8k + 7)| / sqrt(8^2 + (\u22126)^2) = 5\n|200 \u2212 120 \u2212 (8k + 7)| / 10 = 5\n|73 \u2212 8k| = 50.\n\nThus 73 \u2212 8k = 50 or 73 \u2212 8k = \u221250, giving\nk = 23/8 or k = 123/8.\n\nThe sum is 23/8 + 123/8 = 146/8 = 73/4, so m + n = 73 + 4 = 77.\n\n\\boxed{77}"
+    },
+    {
+      "id": "aime_8",
+      "source": "aime",
+      "ground_truth": "62",
+      "predicted": "62",
+      "is_correct": true,
+      "model_response": "Let P = (x, y) lie on the original parabola y = x^2 \u2212 4 and also on its image after a 60\u00b0 counterclockwise rotation about the origin.\n\nEquivalently, rotating P by \u221260\u00b0 must land on the original parabola. The \u221260\u00b0 rotation gives:\nx' = (1/2)x + (\u221a3/2)y\ny' = (\u2212\u221a3/2)x + (1/2)y\n\nWe require y = x^2 \u2212 4 and y' = x'^2 \u2212 4. Substitute y into x', y':\nx' = (1/2)x + (\u221a3/2)(x^2 \u2212 4)\ny' = (1/2)(x^2 \u2212 4) \u2212 (\u221a3/2)x\n\nImpose y' = x'^2 \u2212 4, clear denominators, and simplify to get:\n3x^4 + 2\u221a3 x^3 \u2212 25x^2 \u2212 6\u221a3 x + 40 = 0\n\nThis factors as:\n(x^2 + \u221a3 x \u2212 4)(3x^2 \u2212 \u221a3 x \u2212 10) = 0\n\nFor a fourth-quadrant point, we need x > 0 and y = x^2 \u2212 4 < 0, so 0 < x < 2. The suitable root comes from x^2 + \u221a3 x \u2212 4 = 0:\nx = (\u2212\u221a3 + \u221a19)/2\n\nThen\ny = x^2 \u2212 4 = ( (\u221a19 \u2212 \u221a3)^2 / 4 ) \u2212 4 = (22 \u2212 2\u221a57)/4 \u2212 4 = (3 \u2212 \u221a57)/2\n\nThus a = 3, b = 57, c = 2, and a + b + c = 3 + 57 + 2 = 62.\n\nFinal answer: \\boxed{62}"
+    },
+    {
+      "id": "aime_9",
+      "source": "aime",
+      "ground_truth": "81",
+      "predicted": "81",
+      "is_correct": true,
+      "model_response": "We split the 9 columns into three 3\u00d73 blocks. Let A, B, C be the sets of numbers placed in row 1 of blocks 1, 2, 3 respectively. Then:\n\n- Choose the partition (A,B,C) of {1,\u2026,9} into labeled blocks of size 3 each: 9!/(3!)^3 ways.\n\n- For row 2, each number must go to a different block than in row 1, and each block must receive 3 numbers. Writing\n  - x = # from A sent to block 2 (then 3\u2212x go to block 3),\n  - y = # from B sent to block 1 (then 3\u2212y to block 3),\n  - z = # from C sent to block 1 (then 3\u2212z to block 2),\n  the column sums = 3 condition yields x=z and x+y=3. Thus k=x=z can be 0,1,2,3, giving counts:\n  sum over k of C(3,k)\u00b7C(3,3\u2212k)\u00b7C(3,k) = 1 + 27 + 27 + 1 = 56 ways.\n\n- Row 3 is then forced (each number goes to the remaining block).\n\n- Within each row-block (there are 3 rows \u00d7 3 blocks = 9 such groups), arrange the 3 chosen numbers into the 3 columns: (3!)^9 ways.\n\nTherefore the total number of grids is\n(9!/(3!)^3) \u00b7 56 \u00b7 (3!)^9 = 1680 \u00b7 56 \u00b7 6^9 = 2^16 \u00b7 3^10 \u00b7 5 \u00b7 7^2.\n\nThus p=2, q=3, r=5, s=7 and a=16, b=10, c=1, d=2, so\np\u00b7a + q\u00b7b + r\u00b7c + s\u00b7d = 2\u00b716 + 3\u00b710 + 5\u00b71 + 7\u00b72 = 81.\n\n\\boxed{81}"
+    },
+    {
+      "id": "aime_10",
+      "source": "aime",
+      "ground_truth": "259",
+      "predicted": "259",
+      "is_correct": true,
+      "model_response": "We need y such that y = f(34y^2). Let s = 34y^2 \u2208 [0,34]. For each integer k with s \u2212 4k = r \u2208 [-1,3), we have two cases:\n\n- Rising branch (r \u2208 [-1,1)): y = r = s \u2212 4k \u21d2 34y^2 \u2212 y \u2212 4k = 0.\n  For k = 0,1,...,8, both roots lie in [-1,1). The sum of the two roots for each k is 1/34. Thus total from this branch is 9/34.\n\n- Falling branch (r \u2208 [1,3)): y = 2 \u2212 r = 2 + 4k \u2212 s \u21d2 34y^2 + y \u2212 (2 + 4k) = 0.\n  For k = 0,1,...,7, both roots lie in (-1,1], so their sum per k is \u22121/34, contributing \u22128/34 total. For k = 8, the negative root is < \u22121 (invalid), and the only valid root is\n  y = (-1 + sqrt(273 + 544\u00b78)) / 68 = (-1 + sqrt(4625)) / 68 = (-1 + 5\u221a185)/68.\n\nTherefore, the total sum of y-coordinates is\n9/34 \u2212 8/34 + (-1 + 5\u221a185)/68 = 1/34 + (-1 + 5\u221a185)/68\n= (2 + (\u22121 + 5\u221a185)) / 68 = (1 + 5\u221a185)/68.\n\nThis matches the form (a + b\u221ac)/d with a=1, b=5, c=185, d=68. Hence a+b+c+d = 1+5+185+68 = 259.\n\n\\boxed{259}"
+    },
+    {
+      "id": "aime_11",
+      "source": "aime",
+      "ground_truth": "510",
+      "predicted": "510",
+      "is_correct": true,
+      "model_response": "Let X = x+1, Y = y+1, Z = z+1. Then X+Y+Z = 78, and the inequalities become\n(x \u2212 yz) < (y \u2212 zx) < (z \u2212 xy)\n\u21d4 (x \u2212 y)(1+z) < 0, (y \u2212 z)(1+x) < 0\n\u21d4 (X \u2212 Y)Z < 0, (Y \u2212 Z)X < 0, (X \u2212 Z)Y < 0.\n\nParametrize the plane X+Y+Z=78 by (X,Y), with Z = 78 \u2212 X \u2212 Y. The three inequalities are:\n1) (X \u2212 Y)(78 \u2212 X \u2212 Y) < 0,\n2) X(X + 2Y \u2212 78) < 0,\n3) Y(2X + Y \u2212 78) < 0.\n\nThe unique bounded region occurs in the branch X>0, Y>0, Z>0 with X<Y, so that:\n- From 1): Z>0 and X<Y,\n- From 2): X>0 and X + 2Y < 78,\n- From 3): Y>0 and 2X + Y < 78, which is redundant given X<Y and X+2Y<78.\n\nThus the bounded region in the (X,Y)-plane is the triangle cut out by:\nX \u2265 0, Y \u2265 0, X \u2264 Y, X + 2Y \u2264 78.\n\nIts vertices are (0,0), (0,39), (26,26). The area in the (X,Y)-plane is\nA_xy = 1/2 |det[(0,39), (26,26)]| = 1/2 |0\u00b726 \u2212 39\u00b726| = 507.\n\nThe area in the plane X+Y+Z=78 is scaled by the factor ||r_X \u00d7 r_Y|| where r(X,Y) = (X, Y, 78 \u2212 X \u2212 Y). Here r_X = (1,0,\u22121), r_Y=(0,1,\u22121), so r_X \u00d7 r_Y = (1,1,1) with norm \u221a3. Hence the area is\nA = \u221a3 \u00b7 507 = 507\u221a3.\n\nThus a=507, b=3, and a+b=510.\n\n\\boxed{510}"
+    },
+    {
+      "id": "aime_12",
+      "source": "aime",
+      "ground_truth": "204",
+      "predicted": "204",
+      "is_correct": true,
+      "model_response": "Let R be the number of regions. Adding a new chord (with endpoints on the boundary and in general position) increases R by 1 plus the number of intersections it has with previously drawn segments. Start with the two perpendicular diameters (which create 4 regions), then add the 25 random chords.\n\n1) Intersections with the diameters:\n- A random chord has endpoints in different quadrants. It crosses the horizontal diameter iff its endpoints lie in opposite halves (top vs bottom), which given \u201cdifferent quadrants\u201d happens with probability 2/3. Similarly for the vertical diameter.\n- So the expected number of diameter intersections per chord is 2/3 + 2/3 = 4/3.\n- For 25 chords, expected intersections with the two diameters total 25\u00b7(4/3) = 100/3.\n\n2) Intersections among the 25 random chords:\nLet p be the probability that two such random chords intersect. Model each chord by the unordered pair of quadrants it uses. There are 6 such pairs (4 adjacent, 2 opposite), each equally likely. For two independently chosen pairs S and T:\n\n- If S and T are disjoint:\n  - If both are adjacent (complementary adjacent pairs), the chords do not intersect (probability 0).\n  - If both are opposite ({1,3} and {2,4}), they must intersect (probability 1).\n- If S = T (share both quadrants), intersection occurs with probability 1/2 (depends on the order of endpoints within the two shared arcs).\n- If |S \u2229 T| = 1 (share exactly one quadrant), intersection occurs with probability 1/2 (again decided by the order of the two points in the shared quadrant).\n\nFor a fixed S, among the 6 choices of T, there is 1 equal case (1/2), 4 share-one cases (1/2 each), and 1 disjoint case, which is 0 if S is adjacent and 1 if S is opposite. Averaging:\n- If S is adjacent: p = (1/6)(1/2) + (4/6)(1/2) + (1/6)(0) = 5/12.\n- If S is opposite: p = (1/6)(1/2) + (4/6)(1/2) + (1/6)(1) = 7/12.\n\nSince a chord is adjacent with probability 2/3 and opposite with probability 1/3, we get\np = (2/3)(5/12) + (1/3)(7/12) = 17/36.\n\nThere are C(25,2) = 300 unordered pairs among the 25 chords, so the expected number of intersections among them is 300\u00b7(17/36) = (25/3)\u00b717 = 425/3.\n\n3) Total expected regions:\n- Start with 4 regions from the two diameters.\n- Each of the 25 chords contributes +1 for itself: +25.\n- Add expected intersections with diameters: +100/3.\n- Add expected intersections among the 25 chords: +425/3.\n\nThus,\nR = 4 + 25 + 100/3 + 425/3 = 29 + 525/3 = 29 + 175 = 204.\n\nAnswer: \\boxed{204}"
+    },
+    {
+      "id": "aime_13",
+      "source": "aime",
+      "ground_truth": "60",
+      "predicted": "N/A",
+      "is_correct": false,
+      "model_response": "Error: \n{e}"
+    },
+    {
+      "id": "aime_14",
+      "source": "aime",
+      "ground_truth": "735",
+      "predicted": "147",
+      "is_correct": false,
+      "model_response": "Let m = 3^7 and M = 3^6. Note that for any integer x,\n(x + M)^3 = x^3 + 3\u00b7x^2\u00b7M + 3\u00b7x\u00b7M^2 + M^3 \u2261 x^3 (mod m),\nso a^3 mod m depends only on a mod M. Since a, b, c each run over a complete residue system modulo M, the number N of triples (a,b,c) with a^3 + b^3 + c^3 \u2261 0 (mod m) is\n\nN = (1/m) \u03a3_{r=0}^{m-1} S(r)^3, where S(r) = \u03a3_{x=0}^{M-1} exp(2\u03c0i r x^3 / m).\n\nWe evaluate S(r). Write r = 3^k s with 0 \u2264 k \u2264 6 and s coprime to 3.\n\nDefine the complete cubic sum G_n(s) = \u03a3_{x=0}^{3^n-1} exp(2\u03c0i s x^3 / 3^n). One checks:\n- G_1(s) = 1 + \u03c9^s + \u03c9^{2s} = 0, where \u03c9 = e^{2\u03c0i/3} and s \u2261 1 or 2 mod 3.\n- For n \u2265 2, (x + 3^{n-1})^3 \u2261 x^3 (mod 3^n), so G_n(s) = 3 G_{n-1}(s). Hence G_n(s) = 0 for all n \u2265 1 and s coprime to 3.\n\nNow:\n- If k \u2265 1, then S(r) = 3^{k-1} G_{7-k}(s) = 0.\n- If k = 0, partitioning Z/3^7Z into three cosets modulo 3^6 gives G_7(s) = 3 S(r); since G_7(s) = 0, we get S(r) = 0.\n\nThus S(r) = 0 for all r \u2260 0, and S(0) = M = 3^6. Therefore\nN = (1/m) S(0)^3 = (1/3^7) \u00b7 (3^6)^3 = 3^{11} = 177147.\n\nFinally, 177147 mod 1000 = 147.\n\n\\boxed{147}"
+    },
+    {
+      "id": "aime_15",
+      "source": "aime",
+      "ground_truth": "468",
+      "predicted": "468",
+      "is_correct": true,
+      "model_response": "Let the line be the x-axis with A at 0. Using the given distances:\n\n- AC = 26 \u21d2 C = 26\n- AF = 73 \u21d2 F = 73\n- DF = 33 \u21d2 D = F \u2212 33 = 40\n- CE = 31 \u21d2 E = C + 31 = 57\n- BD = 22 \u21d2 B = D \u2212 22 = 18\n\nThus CD = 14 and BE = E \u2212 B = 57 \u2212 18 = 39.\n\nLet G = (t, h). From CG = 40 and DG = 30:\n(t \u2212 26)^2 + h^2 = 1600\n(t \u2212 40)^2 + h^2 = 900\n\nSubtract:\n[(t \u2212 26)^2 \u2212 (t \u2212 40)^2] = 700\n(28t \u2212 924) = 700 \u21d2 28t = 1624 \u21d2 t = 58\n\nThen h^2 = 900 \u2212 (58 \u2212 40)^2 = 900 \u2212 324 = 576 \u21d2 h = 24.\n\nArea of triangle BGE = (1/2) \u00d7 BE \u00d7 h = (1/2) \u00d7 39 \u00d7 24 = 468.\n\n\\boxed{468}"
+    },
+    {
+      "id": "aime_16",
+      "source": "aime",
+      "ground_truth": "49",
+      "predicted": "49",
+      "is_correct": true,
+      "model_response": "Let m = n + 2. Then n = m \u2212 2, and the condition becomes:\nm divides 3(n + 3)(n^2 + 9) = 3(m + 1)((m \u2212 2)^2 + 9) = 3(m + 1)(m^2 \u2212 4m + 13).\n\nReduce modulo m:\nm + 1 \u2261 1 (mod m),\nm^2 \u2212 4m + 13 \u2261 13 (mod m).\n\nThus 3(m + 1)(m^2 \u2212 4m + 13) \u2261 3\u00b71\u00b713 = 39 (mod m), so m | 39.\n\nSince n is positive, m = n + 2 \u2265 3. The positive divisors of 39 at least 3 are m \u2208 {3, 13, 39}, giving n \u2208 {1, 11, 37}.\n\nSum: 1 + 11 + 37 = 49.\n\n\\boxed{49}"
+    },
+    {
+      "id": "aime_17",
+      "source": "aime",
+      "ground_truth": "82",
+      "predicted": "82",
+      "is_correct": true,
+      "model_response": "Label the four unit squares A (top-left), B (top-right), C (bottom-left), D (bottom-right). Consider the 4 internal edges between adjacent squares: AB (top middle), BD (right middle), DC (bottom middle), CA (left middle). These form a 4-cycle.\n\nLet S be the set of internal edges colored red. For each square (vertex) v \u2208 {A,B,C,D}, let k_v be the number of red internal edges incident to v (0, 1, or 2). Since each square must have exactly two red sides total, the number of red boundary edges at v must be 2 \u2212 k_v. This gives:\n- If k_v = 2: boundary edges at v are both blue (0 choices).\n- If k_v = 0: both boundary edges at v are red (0 choices).\n- If k_v = 1: exactly one of the two boundary edges at v is red (2 choices).\n\nThus, for a fixed S, the number of valid colorings equals 2^{t(S)}, where t(S) is the number of vertices with k_v = 1 (degree 1 in the subgraph on the 4-cycle).\n\nNow enumerate subsets S of the 4-cycle:\n- m = 0 edges: t = 0 \u2192 1 subset, contributes 1.\n- m = 1 edge: t = 2 \u2192 4 subsets, each contributes 2^2 = 4 \u2192 total 16.\n- m = 2 edges:\n  - adjacent: t = 2 \u2192 4 subsets, each 4 \u2192 total 16.\n  - opposite: t = 4 \u2192 2 subsets, each 16 \u2192 total 32.\n- m = 3 edges: t = 2 \u2192 4 subsets, each 4 \u2192 total 16.\n- m = 4 edges: t = 0 \u2192 1 subset, contributes 1.\n\nSumming: 1 + 16 + (16 + 32) + 16 + 1 = 82.\n\nTherefore, the number of such colorings is \\boxed{82}."
+    },
+    {
+      "id": "aime_18",
+      "source": "aime",
+      "ground_truth": "106",
+      "predicted": "106",
+      "is_correct": true,
+      "model_response": "We rewrite each factor using log properties:\nlog_k(5^{k^2-1}) = (k^2 - 1) log_k 5 and log_{k+1}(5^{k^2-4}) = (k^2 - 4) log_{k+1} 5.\n\nThus the product becomes:\n\u220f_{k=4}^{63} [(k^2 - 1)/(k^2 - 4)] \u00b7 [log_k 5 / log_{k+1} 5]\n= \u220f_{k=4}^{63} [(k-1)(k+1)]/[(k-2)(k+2)] \u00b7 \u220f_{k=4}^{63} [log_k 5 / log_{k+1} 5].\n\nThe logarithmic part telescopes:\n\u220f_{k=4}^{63} [log_k 5 / log_{k+1} 5] = log_4 5 / log_{64} 5 = ln 64 / ln 4 = 3.\n\nThe rational part factors and telescopes:\n\u220f_{k=4}^{63} (k-1)/(k-2) = (3/2)(4/3)...(62/61) = 62/2 = 31,\n\u220f_{k=4}^{63} (k+1)/(k+2) = (5/6)(6/7)...(64/65) = 5/65 = 1/13.\n\nSo the whole product equals (31)\u00b7(1/13)\u00b73 = 93/13. In lowest terms, m = 93 and n = 13, so m + n = 106.\n\n\\boxed{106}"
+    },
+    {
+      "id": "aime_19",
+      "source": "aime",
+      "ground_truth": "336^\\circ",
+      "predicted": "336",
+      "is_correct": false,
+      "model_response": "Let N be the circumcenter of triangle DEF (the nine-point circle of ABC).\n\nKey observations:\n- Because DE \u2225 AB, EF \u2225 BC, and FD \u2225 AC, triangle DEF is similar to ABC with corresponding angles:\n  \u2220EDF = \u2220A = 84\u00b0, \u2220DEF = \u2220B = 60\u00b0, \u2220DFE = \u2220C = 36\u00b0.\n\n1) Arc DE:\n- Arc DE on the circumcircle equals 2\u2220DFE = 2\u00b736\u00b0 = 72\u00b0.\n\n2) Arc FG:\n- G is the second intersection of the nine-point circle with BD. Since BD is collinear with BC and DF \u2225 AC, we have \u2220FDG = \u2220ACB = 36\u00b0. Hence arc FG = 2\u00b736\u00b0 = 72\u00b0.\n\n3) Arc HJ:\n- The lines AE and AF are secants through A meeting the circle at (H, E) and (J, F), with H and J the nearer intersections.\n- By the external secant angle theorem,\n  \u2220EAF = 1/2 (arc EF_far \u2212 arc HJ),\n  where arc EF_far is the arc between the far points E and F opposite A (the major arc EF).\n- Note AE is along AC and AF along AB, so \u2220EAF = \u2220CAB = 84\u00b0.\n- Also, the minor arc EF = 2\u2220EDF = 2\u00b784\u00b0 = 168\u00b0, so the major arc EF is 360\u00b0 \u2212 168\u00b0 = 192\u00b0.\n- Therefore 84\u00b0 = 1/2 (192\u00b0 \u2212 arc HJ) \u21d2 arc HJ = 24\u00b0.\n\nFinally,\nwidehat{DE} + 2\u00b7widehat{HJ} + 3\u00b7widehat{FG} = 72 + 2\u00b724 + 3\u00b772 = 72 + 48 + 216 = 336.\n\n\\boxed{336}"
+    },
+    {
+      "id": "aime_20",
+      "source": "aime",
+      "ground_truth": "293",
+      "predicted": "293",
+      "is_correct": true,
+      "model_response": "Let the larger circle \u03c92 have center O at the origin and radius 15, so x^2 + y^2 = 225. Place the tangency point at B = (15, 0). Then C, the endpoint of the diameter through B, is at C = (-15, 0).\n\nThe smaller circle \u03c91 has radius 6 and is internally tangent at B, so its center A lies on OB with OA = 15 \u2212 6 = 9. Thus A = (9, 0).\n\nGiven AD \u27c2 BC and BC is the x-axis, AD is vertical. Hence D is on x = 9 and on \u03c92, so D = (9, \u00b112). The condition \u201cD is closer to FG than to EH\u201d (bottom closer than top) forces D = (9, \u221212).\n\nThe rectangle EFGH is inscribed in \u03c91 with EF \u27c2 BC, so EF is vertical. Let the rectangle be axis-aligned with center A = (9, 0), with half-width a and half-height b. Then a^2 + b^2 = 36, and its vertices are:\n- E = (9 + a, b), F = (9 + a, \u2212b),\n- G = (9 \u2212 a, \u2212b), H = (9 \u2212 a, b).\n\nThe condition \u201cC is closer to GH than to EF\u201d is satisfied when EF is the right side and GH is the left side, consistent with C at x = \u221215.\n\nAreas:\n- Triangle DGF has base GF = 2a and height 12 \u2212 b, so its area is a(12 \u2212 b).\n- Triangle CHG has base HG = 2b and horizontal height 24 \u2212 a (distance from C to x = 9 \u2212 a), so its area is b(24 \u2212 a).\n\nEqual areas give a(12 \u2212 b) = b(24 \u2212 a), which simplifies to 12a = 24b, so a = 2b.\n\nUsing a^2 + b^2 = 36 gives 4b^2 + b^2 = 36 \u21d2 b^2 = 36/5, hence a = 2b and ab = 2b^2 = 72/5.\n\nThe rectangle\u2019s area is 4ab = 4\u00b7(72/5) = 288/5, so m + n = 288 + 5 = 293.\n\n\\boxed{293}"
+    },
+    {
+      "id": "aime_21",
+      "source": "aime",
+      "ground_truth": "237",
+      "predicted": "237",
+      "is_correct": true,
+      "model_response": "2025 = 3^4 \u00b7 5^2. Its positive divisors are of the form 3^a 5^b with 0 \u2264 a \u2264 4 and 0 \u2264 b \u2264 2, so |A| = 5\u00b73 = 15, and there are 2^15 total subsets.\n\nLet X be the set of divisors with a = 4 (size 3), and Y be those with b = 2 (size 5). A subset B has lcm 2025 iff it contains at least one element from X and at least one from Y.\n\nBy inclusion-exclusion, the number of subsets containing at least one from X and at least one from Y is:\n2^15 \u2212 2^{15\u22123} \u2212 2^{15\u22125} + 2^{15\u22127} = 2^15 \u2212 2^12 \u2212 2^10 + 2^8 = 27904.\n\nThus the probability is 27904 / 2^15 = 27904 / 32768 = 109 / 128.\n\nHence m + n = 109 + 128 = 237.\n\n\\boxed{237}"
+    },
+    {
+      "id": "aime_22",
+      "source": "aime",
+      "ground_truth": "610",
+      "predicted": "610",
+      "is_correct": true,
+      "model_response": "Let N = 25q + r with 0 \u2264 r \u2264 24. The greedy algorithm picks q quarters, then floor(r/10) dimes, and r mod 10 pennies. Let C(x) = floor(x/10) + (x mod 10), the minimum number of coins to make x using 10 and 1. Then the greedy coin count is G = q + C(r).\n\nConsider using one fewer quarter: then the leftover becomes r + 25, and the coin count becomes (q \u2212 1) + C(r + 25). The change in total coin count is\n\u0394 = [(q \u2212 1) + C(r + 25)] \u2212 [q + C(r)] = C(r + 25) \u2212 C(r) \u2212 1.\n\nCompute C(r + 25) \u2212 C(r):\n- If r mod 10 \u2208 {0,1,2,3,4}, then C(r + 25) = C(r) + 7, so \u0394 = 6 > 0: using fewer quarters is worse; greedy is optimal.\n- If r mod 10 \u2208 {5,6,7,8,9}, then C(r + 25) = C(r) \u2212 2, so \u0394 = \u22123 < 0: using one fewer quarter is better; greedy fails (provided q \u2265 1, i.e., N \u2265 25).\n\nIf N < 25 (q = 0), the system {10,1} is canonical, so greedy is optimal for all N < 25.\n\nTherefore, greedy succeeds for:\n- All N < 25 (24 values), and\n- For N \u2265 25 exactly when r \u2208 {0,1,2,3,4,10,11,12,13,14,20,21,22,23,24}, i.e., 15 residues mod 25.\n\nFrom 1 to 1000, each residue class mod 25 appears exactly 40 times. Thus:\n- The 15 \u201cgood\u201d residues contribute 15 \u00d7 40 = 600 successes.\n- Additionally, for the 10 \u201cbad\u201d residues (5\u20139, 15\u201319), the small N < 25 cases (N = 5\u20139, 15\u201319) are successes, contributing 10 more.\n\nTotal successes: 600 + 10 = 610.\n\nAnswer: \\boxed{610}"
+    },
+    {
+      "id": "aime_23",
+      "source": "aime",
+      "ground_truth": "149",
+      "predicted": "149",
+      "is_correct": true,
+      "model_response": "We need zeros of f(x) = sin(7\u03c0 sin(5x)) on 0 < x < 2\u03c0. Let u = 5x, so u \u2208 (0, 10\u03c0). Then f(x) = 0 iff 7\u03c0 sin u = k\u03c0 for some integer k, i.e., sin u = k/7 with k \u2208 {-7, -6, ..., 6, 7}.\n\nCount solutions for each k:\n- For k = \u00b17 (sin u = \u00b11): exactly 5 solutions each in (0, 10\u03c0), total 10.\n- For k = 0 (sin u = 0): u = n\u03c0, n = 1,2,...,9 \u2192 9 solutions.\n- For k = \u00b11, \u00b12, \u00b13, \u00b14, \u00b15, \u00b16: for each fixed c \u2208 (-1,1)\\{0}, sin u = c has 2 solutions per 2\u03c0 period; across 5 periods length 10\u03c0 gives 10 solutions each. There are 12 such k, totaling 12\u00b710 = 120.\n\nThus n = 10 + 9 + 120 = 139.\n\nTangency occurs when f(x) = 0 and f'(x) = 0. Differentiating, f'(x) = 35\u03c0 cos(7\u03c0 sin(5x)) cos(5x). At zeros, cos(7\u03c0 sin(5x)) = cos(k\u03c0) = (\u22121)^k \u2260 0, so f'(x) = 0 iff cos(5x) = 0, which forces sin(5x) = \u00b11, i.e., k = \u00b17. These are exactly the 10 solutions from k = \u00b17, and near such points the zero is quadratic (tangent).\n\nHence t = 10, so n + t = 139 + 10 = 149.\n\n\\boxed{149}"
+    },
+    {
+      "id": "aime_24",
+      "source": "aime",
+      "ground_truth": "907",
+      "predicted": "907",
+      "is_correct": true,
+      "model_response": "We need 8 occupied chairs among 16 in a row, with no person sitting next to two others. That means no run of three or more consecutive occupied chairs; runs of 1 or 2 are allowed.\n\nLet the 8 occupied seats be grouped into t blocks, each of length 1 or 2. Let a be the number of 2-blocks and b the number of 1-blocks. Then:\n- 2a + b = 8, so b = 8 \u2212 2a\n- t = a + b = 8 \u2212 a\n- a can be 0,1,2,3,4.\n\nBetween the t blocks there are t\u22121 internal gaps, each requiring at least 1 zero; the two end gaps can have 0 or more zeros. There are 8 zeros total. Distributing zeros yields number of ways:\n- Convert internal gaps to y_i = x_i \u2212 1 for i=1..t\u22121. Then total nonnegative solutions to x0 + xt + sum y_i = 9 \u2212 t over t+1 variables is C(9, t).\n\nFor fixed a, choose which t blocks are 2\u2019s: C(t, a). Thus total\nN = sum_{a=0}^4 C(8 \u2212 a, a) \u00b7 C(9, 8 \u2212 a).\n\nCompute:\n- a=0: C(8,0)\u00b7C(9,8) = 1\u00b79 = 9\n- a=1: C(7,1)\u00b7C(9,7) = 7\u00b736 = 252\n- a=2: C(6,2)\u00b7C(9,6) = 15\u00b784 = 1260\n- a=3: C(5,3)\u00b7C(9,5) = 10\u00b7126 = 1260\n- a=4: C(4,4)\u00b7C(9,4) = 1\u00b7126 = 126\n\nSum: N = 9 + 252 + 1260 + 1260 + 126 = 2907.\n\nRemainder modulo 1000: 2907 \u2261 907.\n\n\\boxed{907}"
+    },
+    {
+      "id": "aime_25",
+      "source": "aime",
+      "ground_truth": "113",
+      "predicted": "113",
+      "is_correct": true,
+      "model_response": "We must pair up the 24 vertices into 12 disjoint equal-length chords. Equal-length chords in a regular 24-gon correspond to a fixed step m along the polygon (1 \u2264 m \u2264 12), where m and 24 \u2212 m give the same length; m = 12 is the diameter.\n\nFor a fixed m, consider the graph where each vertex is connected to those m steps away (i.e., to i \u00b1 m mod 24). This graph decomposes into g = gcd(24, m) disjoint cycles, each of length t = 24/g. A perfect matching using only chords of length m exists if and only if t is even; then each cycle contributes 2 choices, giving 2^g matchings in total. The exception is m = 12 (diameters), where each vertex has only one opposite partner, yielding exactly 1 matching. If t is odd (which happens when gcd(24, m) is divisible by 8, i.e., m = 8), there are no matchings.\n\nCompute for m = 1 to 12:\n- m = 1: gcd = 1 \u2192 2\n- m = 2: gcd = 2 \u2192 4\n- m = 3: gcd = 3 \u2192 8\n- m = 4: gcd = 4 \u2192 16\n- m = 5: gcd = 1 \u2192 2\n- m = 6: gcd = 6 \u2192 64\n- m = 7: gcd = 1 \u2192 2\n- m = 8: gcd = 8 \u2192 0 (odd cycles)\n- m = 9: gcd = 3 \u2192 8\n- m = 10: gcd = 2 \u2192 4\n- m = 11: gcd = 1 \u2192 2\n- m = 12: special (diameters) \u2192 1\n\nSum: 2 + 4 + 8 + 16 + 2 + 64 + 2 + 0 + 8 + 4 + 2 + 1 = 113.\n\nTherefore, the number of ways is \\boxed{113}."
+    },
+    {
+      "id": "aime_26",
+      "source": "aime",
+      "ground_truth": "19",
+      "predicted": "19",
+      "is_correct": true,
+      "model_response": "Let r_i = A1A_i and let \u03b8 be the angle \u2220A_iA1A_{i+1}. Given cos \u03b8 = 12/13, we have sin \u03b8 = 5/13. The area condition gives\n1 = (1/2) r_i r_{i+1} sin \u03b8 = (1/2) r_i r_{i+1} (5/13) \u21d2 r_i r_{i+1} = 26/5 =: c.\nHence r_{i+1} = c/r_i, so the radii alternate: for some t > 0, r_2 = t, r_3 = c/t, r_4 = t, \u2026, r_{11} = c/t.\n\nFor edges A_iA_{i+1} with 2 \u2264 i \u2264 10, by the Law of Cosines,\nA_iA_{i+1}^2 = r_i^2 + r_{i+1}^2 \u2212 2 r_i r_{i+1} cos \u03b8\n= r_i^2 + r_{i+1}^2 \u2212 2c\u00b7(12/13) = r_i^2 + r_{i+1}^2 \u2212 48/5.\nThese are all equal since {r_i, r_{i+1}} is always {t, c/t}. Let u = t + c/t. Then\nr_i^2 + r_{i+1}^2 = t^2 + (c/t)^2 = u^2 \u2212 2c,\nso each of these nine edges has length s = sqrt(u^2 \u2212 2c \u2212 48/5) = sqrt(u^2 \u2212 20).\n\nThe perimeter is\nP = A1A2 + A1A11 + \u2211_{i=2}^{10} A_iA_{i+1} = (t + c/t) + 9 sqrt(u^2 \u2212 20) = u + 9 sqrt(u^2 \u2212 20) = 20.\nSolve for u:\nLet s = sqrt(u^2 \u2212 20) = (20 \u2212 u)/9 \u21d2 s^2 = u^2 \u2212 20 = (20 \u2212 u)^2/81.\nThus 81(u^2 \u2212 20) = (20 \u2212 u)^2 \u21d2 80u^2 + 40u \u2212 2020 = 0 \u21d2 4u^2 + 2u \u2212 101 = 0.\nHence u = (\u22121 + 18\u221a5)/8 = (9\u221a5 \u2212 1)/4.\n\nTherefore A1A2 + A1A11 = u = (9\u221a5 \u2212 1)/4. So m = 9, n = 5, p = 1, q = 4, and\nm + n + p + q = 9 + 5 + 1 + 4 = 19.\n\n\\boxed{19}"
+    },
+    {
+      "id": "aime_27",
+      "source": "aime",
+      "ground_truth": "248",
+      "predicted": "N/A",
+      "is_correct": false,
+      "model_response": "Error: \n{e}"
+    },
+    {
+      "id": "aime_28",
+      "source": "aime",
+      "ground_truth": "104",
+      "predicted": "104",
+      "is_correct": true,
+      "model_response": "Let A = (0,0), B = (b,0), C = (0,c). Then b^2 + c^2 = BC^2 = 38^2 = 1444.\n\nSince AK = BK = 14, point K is the intersection of circles centered at A and B with radius 14, so\nK = (b/2, h), where h = sqrt(196 \u2212 b^2/4).\n\nSimilarly, since AL = CL = 14, point L is\nL = (h2, c/2), where h2 = sqrt(196 \u2212 c^2/4).\n\nAlso AK = AL = KL = 14 implies triangle AKL is equilateral, so angle KAL = 60\u00b0, giving the dot product condition:\n(b/2)\u00b7h2 + (c/2)\u00b7h = 98.  (1)\n\nSet u = b/2, v = c/2, w = h = sqrt(196 \u2212 u^2), z = h2 = sqrt(196 \u2212 v^2).\nThen:\n- u^2 + v^2 = 361 (since b^2 + c^2 = 1444),\n- u z + v w = 98.  (from (1))\n\nParametrize u = 14 cos \u03b1, w = 14 sin \u03b1; v = 14 cos \u03b2, z = 14 sin \u03b2 (so u^2 + w^2 = v^2 + z^2 = 196).\nThen\nu z + v w = 196 sin(\u03b1 + \u03b2) = 98 \u21d2 sin(\u03b1 + \u03b2) = 1/2 \u21d2 \u03b1 + \u03b2 = 30\u00b0.\n\nAlso,\ncos^2 \u03b1 + cos^2 \u03b2 = (u^2 + v^2)/196 = 361/196 = 1 + cos(\u03b1 + \u03b2) cos(\u03b1 \u2212 \u03b2).\nThus cos(\u03b1 \u2212 \u03b2) = (361/196 \u2212 1)/cos 30\u00b0 = (165/196)/(\u221a3/2) = 165/(98\u221a3).\n\nNow compute the area of quadrilateral BKLC with vertices B(b,0), K(u,w), L(z,c/2), C(0,c).\nShoelace gives\nArea = 1/2 [b h + (b/2)(c/2) + h2 c \u2212 h h2 \u2212 c b]\n= 1/2 [b h + c h2 \u2212 h h2 \u2212 (3/4) b c].\n\nIn terms of u,v,w,z (with b=2u, c=2v), this becomes\nArea = u w + v z \u2212 (1/2) w z \u2212 (3/2) u v.\n\nUsing u=14 cos \u03b1, w=14 sin \u03b1, v=14 cos \u03b2, z=14 sin \u03b2, this simplifies via trig identities to\nArea = 98[cos(\u03b1 \u2212 \u03b2) + cos(\u03b1 + \u03b2)].\n\nWith \u03b1 + \u03b2 = 30\u00b0 and cos(\u03b1 \u2212 \u03b2) = 165/(98\u221a3), we get\nArea = 98(165/(98\u221a3) + \u221a3/2) = 165/\u221a3 + 49\u221a3 = 312/\u221a3 = 104\u221a3.\n\nTherefore, n = 104.\n\n\\boxed{104}"
+    },
+    {
+      "id": "aime_29",
+      "source": "aime",
+      "ground_truth": "240",
+      "predicted": "N/A",
+      "is_correct": false,
+      "model_response": "Error: \n{e}"
+    }
+  ]
+}
