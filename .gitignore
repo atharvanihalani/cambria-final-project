@@ -1,2 +1,3 @@
 /previous_attempt*
 .env
+__pycache__/

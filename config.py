@@ -40,6 +40,7 @@ PROBE_QUESTIONS = [
 # REWRITER_MODEL = "openai/gpt-4o"
 REWRITER_MODEL = "anthropic/claude-4.5-opus"
 TARGET_MODEL = "openai/gpt-4.1-mini"
+SCORER_MODEL = "openai/gpt-5"
 
 # Dataset sizes
 N_SAMPLES_PER_CLASS = 100

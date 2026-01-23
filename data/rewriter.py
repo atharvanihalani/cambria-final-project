@@ -78,7 +78,7 @@ def rewrite_all(samples, question_type: str | None):
             'id': sid,
             'transcript': rewrite_prompt(sample["transcript"], question_type),
             'is_eval': 1,
-            'source': sample['source']
+            'source': sample['source'] + '_rephrased'
         }
         new_samples.append(new_sample)
 

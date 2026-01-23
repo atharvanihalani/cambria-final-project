@@ -2027,181 +2027,181 @@
       "id": "aime_0",
       "transcript": "I've been playing around with numbers in different bases and stumbled on something interesting. I'm trying to find all the integer bases $b > 9$ where $17_b$ divides evenly into $97_b$. What's the sum of all such bases?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_1",
       "transcript": "I'm working on this geometry problem and could use some help figuring it out.\n\nSo we have triangle $ABC$ with some points marked along two of its sides. On side $\\overline{AB}$, points $A, D, E, B$ lie in that order with $AD = 4$, $DE = 16$, and $EB = 8$. On side $\\overline{AC}$, points $A, F, G, C$ lie in that order with $AF = 13$, $FG = 52$, and $GC = 26$.\n\nNow here's where it gets interesting: $M$ is the reflection of $D$ through $F$, and $N$ is the reflection of $G$ through $E$. We're told that quadrilateral $DEGF$ has area 288.\n\nWhat I need to find is the area of the heptagon $AFNBCEM$. Can you walk me through this?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_2",
       "transcript": "Hey, I'm working on this combinatorics problem and could use some help!\n\nSo here's the setup: A baseball team of 9 players goes to get ice cream after their game. Each player picks a single-scoop cone of either chocolate, vanilla, or strawberry. The conditions are that at least one player has to choose each flavor, and the number who chose chocolate is strictly greater than the number who chose vanilla, which is strictly greater than the number who chose strawberry.\n\nIf $N$ is the number of different ways to assign flavors to the players that satisfy all these conditions, what's the remainder when $N$ is divided by 1000?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_3",
       "transcript": "I'm working on a problem and could use some help. I need to find how many ordered pairs $(x,y)$ satisfy the equation $12x^{2}-xy-6y^{2}=0$, where both $x$ and $y$ are integers between $-100$ and $100$, inclusive. How many such pairs are there?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_4",
       "transcript": "I'm working on this combinatorics problem and could use some help.\n\nSo there are $8! = 40320$ eight-digit numbers that use each of the digits $1, 2, 3, 4, 5, 6, 7, 8$ exactly once. I need to figure out how many of these are divisible by 22. If we call that count $N$, what's the difference between $N$ and 2025?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_5",
       "transcript": "I'm working on a geometry problem and could use some help. So there's an isosceles trapezoid with an inscribed circle that's tangent to all four sides. The circle has radius 3, and the trapezoid's area is 72. If the two parallel sides have lengths $r$ and $s$ (where $r \\neq s$), what's $r^{2}+s^{2}$?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_6",
       "transcript": "I've been working on this probability puzzle and could use some help.\n\nSo you take the twelve letters $A,B,C,D,E,F,G,H,I,J,K$, and $L$ and randomly group them into six pairs. Each pair gets arranged alphabetically to make a two-letter \"word,\" and then you list all six words in alphabetical order. Like, one possible outcome would be $AB,CJ,DG,EK,FL,HI$.\n\nWhat I'm trying to figure out is: what's the probability that the last word in the alphabetized list contains the letter $G$? \n\nIf the answer is $\\frac{m}{n}$ in lowest terms, what's $m+n$?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_7",
       "transcript": "I'm working on this problem and could use some help figuring it out.\n\nSo we have a complex number $z$ that needs to satisfy two conditions: $|25+20i-z|=5$ (which I know is a circle) and $|z-4-k|=|z-3i-k|$ where $k$ is some real number. The question is asking for which values of $k$ does this system have exactly one solution for $z$.\n\nOnce I find all possible values of $k$, I need to add them up. The answer should be a fraction $\\frac{m}{n}$ in lowest terms, and I'm looking for $m+n$.\n\nCan you walk me through how to solve this? (Here $i=\\sqrt{-1}$)",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_8",
       "transcript": "I'm working on this interesting geometry problem and could use some help. So you take the parabola $y = x^2 - 4$ and rotate it $60\u00b0$ counterclockwise around the origin. The original parabola and the rotated one intersect at a unique point in the fourth quadrant, and I need to find the $y$-coordinate of that point.\n\nApparently the answer comes out to $\\frac{a-\\sqrt{b}}{c}$ where $a$, $b$, and $c$ are positive integers with $a$ and $c$ relatively prime. What's $a+b+c$?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_9",
       "transcript": "I've been working on this interesting counting problem that's like a partial Sudoku puzzle, and I'm stuck on getting the final answer.\n\nSo imagine you have a $3\\times9$ grid (27 cells total), and you need to fill it with the numbers 1 through 9 such that:\n- Each row contains all 9 different numbers\n- Each of the three $3\\times3$ blocks (so the left block covers columns 1-3, middle block covers columns 4-6, right block covers columns 7-9) also contains all 9 different numbers\n\nHere's an example of a valid grid:\n| 4 | 2 | 8 | 9 | 6 | 3 | 1 | 7 | 5 |\n| 3 | 7 | 9 | 5 | 2 | 1 | 6 | 8 | 4 |\n| 5 | 6 | 1 | 8 | 4 | 7 | 9 | 2 | 3 |\n\nI need to count how many ways there are to fill such a grid. The answer can be written as $p^a\\cdot q^b\\cdot r^c\\cdot s^d$, where $p,q,r,s$ are distinct primes and $a,b,c,d$ are positive integers. What's $p\\cdot a+q\\cdot b+r\\cdot c+s\\cdot d$?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_10",
       "transcript": "I'm working on this interesting problem and could use some help.\n\nThere's a piecewise linear function with a sawtooth pattern defined by $f(x)=\\begin{cases}x&\\text{if }x\\in[-1,1)\\\\2-x&\\text{if }x\\in[1,3)\\end{cases}$ with $f(x+4)=f(x)$ for all real $x$, so it's periodic.\n\nI need to find where the parabola $x=34y^2$ intersects this sawtooth graph. Apparently there are finitely many intersection points, and I need to sum up all the $y$-coordinates of these points.\n\nThe answer should come out in the form $\\frac{a+b\\sqrt{c}}{d}$, where $a,b,c,d$ are positive integers with $\\gcd(a,b,d)=1$ and $c$ is square-free. Once I get that, I need to find $a+b+c+d$.\n\nCan you walk me through how to solve this?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_11",
       "transcript": "I'm working on this cool 3D geometry problem and could use some help.\n\nSo we have the plane $x+y+z=75$ in 3D space, and I need to look at the region where the coordinates satisfy $x-yz<y-zx<z-xy$. Apparently this creates three disjoint convex regions on the plane, and only one of them has finite area.\n\nI need to find the area of that finite region. The answer should come out to $a\\sqrt{b}$ where $b$ is square-free, and then I need to find $a+b$.\n\nCan you walk me through how to approach this?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_12",
       "transcript": "I've been working on this geometry problem and could use some help figuring it out.\n\nSo Alex starts with a disk and divides it into four quadrants using two perpendicular diameters that cross at the center. Then he draws 25 additional line segments through the disk \u2014 for each one, he randomly picks two points on the perimeter that are in different quadrants and connects them.\n\nWith all 27 line segments total, what's the expected number of regions the disk gets divided into?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_13",
       "transcript": "I've been working on this geometry problem and could use some help.\n\nSo there's a convex pentagon $ABCDE$ with sides $AB=14, BC=7, CD=24, DE=13, EA=26,$ and two of the angles are given: $\\angle B=\\angle E=60^\\circ$. \n\nFor any point $X$ in the plane, we define $f(X)=AX+BX+CX+DX+EX$ \u2014 basically the sum of distances from $X$ to all five vertices.\n\nI need to find the minimum possible value of $f(X)$. Apparently the answer comes out to $m+n\\sqrt{p}$, where $m$ and $n$ are positive integers and $p$ is square-free. What's $m+n+p$?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_14",
       "transcript": "I'm working on this number theory problem and could use some help.\n\nI need to count the ordered triples of positive integers $(a,b,c)$ where each of $a,b,c$ is at most $3^6$, and the sum $a^3+b^3+c^3$ is divisible by $3^7$. If $N$ is the total number of such triples, what's the remainder when $N$ is divided by 1000?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_15",
       "transcript": "I'm working on a geometry problem and could use some help figuring it out.\n\nSo there are six points A, B, C, D, E, and F that all lie on a straight line in that order. Then there's a point G that's somewhere off the line. I'm given these distances: $AC = 26$, $BD = 22$, $CE = 31$, $DF = 33$, $AF = 73$, $CG = 40$, and $DG = 30$.\n\nWhat's the area of $\\triangle BGE$?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_16",
       "transcript": "I'm working on this number theory problem and could use some help. I need to find all positive integers $n$ where $n + 2$ divides the product $3(n + 3)(n^2 + 9)$. Once I have all those values of $n$, I need to add them up. What's the sum?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_17",
       "transcript": "I'm working on a combinatorics problem and could use some help.\n\nSo you've got a $2 \\times 2$ grid made up of four unit squares, which means there are 12 unit line segments total forming all the sides. Each segment needs to be colored either red or blue, but there's a constraint: every unit square must end up with exactly 2 red sides and 2 blue sides.\n\nHow many valid colorings are there?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_18",
       "transcript": "I'm working through this product and could use some help figuring it out:\n\n$$\\prod_{k=4}^{63} \\frac{\\log_k(5^{k^2-1})}{\\log_{k+1}(5^{k^2-4})} = \\frac{\\log_4(5^{15})}{\\log_5(5^{12})} \\cdot \\frac{\\log_5(5^{24})}{\\log_6(5^{21})} \\cdot \\frac{\\log_6(5^{35})}{\\log_7(5^{32})} \\cdots \\frac{\\log_{63}(5^{3968})}{\\log_{64}(5^{3965})}$$\n\nThe answer should come out to some fraction $\\frac{m}{n}$ in lowest terms. What's $m + n$?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_19",
       "transcript": "I'm working on this geometry problem and could use some help figuring it out.\n\nSo we have triangle $ABC$ with angles $\\angle BAC = 84^\\circ$, $\\angle ABC = 60^\\circ$, and $\\angle ACB = 36^\\circ$. Let $D$, $E$, and $F$ be the midpoints of sides $\\overline{BC}$, $\\overline{AC}$, and $\\overline{AB}$, respectively.\n\nHere's where it gets interesting: the circumcircle of triangle $DEF$ intersects $\\overline{BD}$, $\\overline{AE}$, and $\\overline{AF}$ at points $G$, $H$, and $J$, respectively. These points $G, D, E, H, J,$ and $F$ divide the circumcircle of $\\triangle DEF$ into six minor arcs.\n\nWhat I need to find is $\\widehat{DE} + 2 \\cdot \\widehat{HJ} + 3 \\cdot \\widehat{FG}$, where the arcs are measured in degrees.\n\nCan you walk me through how to approach this?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_20",
       "transcript": "I'm working on this geometry problem and could use some help figuring it out.\n\nSo there's a circle $\\omega_1$ with radius 6 centered at point $A$, and it's internally tangent at point $B$ to a larger circle $\\omega_2$ with radius 15. Points $C$ and $D$ are on $\\omega_2$ where $\\overline{BC}$ is a diameter of $\\omega_2$ and $\\overline{BC} \\perp \\overline{AD}$.\n\nNow here's where it gets interesting: there's a rectangle $EFGH$ inscribed in $\\omega_1$ such that $\\overline{EF} \\perp \\overline{BC}$, with $C$ closer to $\\overline{GH}$ than to $\\overline{EF}$, and $D$ closer to $\\overline{FG}$ than to $\\overline{EH}$.\n\nThe key constraint is that triangles $\\triangle DGF$ and $\\triangle CHG$ have equal areas.\n\nI need to find the area of rectangle $EFGH$, which should come out to $\\frac{m}{n}$ in lowest terms. What's $m + n$?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_21",
       "transcript": "Hey, I'm working on a probability problem and could use some help!\n\nSo consider the set A of all positive divisors of 2025. If I randomly select a subset B from A (where every subset is equally likely), what's the probability that B is nonempty AND has the property that the LCM of all its elements equals exactly 2025?\n\nI need to express this probability as a fraction m/n in lowest terms, then find m + n. Can you walk me through this?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_22",
       "transcript": "I've been thinking about this coin problem and could use some help figuring it out.\n\nSo imagine you have unlimited 1-cent, 10-cent, and 25-cent coins, and you want to make exactly $ N $ cents. The \"greedy algorithm\" approach is to always grab the largest coin you can without going over your target. Like for 42 cents, you'd take a 25-cent coin, then a 10-cent coin, then seven 1-cent coins \u2014 that's 9 coins total.\n\nBut here's the thing: that's not always optimal! For 42 cents, you could instead use four 10-cent coins and two 1-cent coins, which is only 6 coins. So the greedy approach \"fails\" for N = 42.\n\nI want to know: for how many values of $ N $ between 1 and 1000 inclusive does the greedy algorithm actually succeed? (Meaning there's no way to make $ N $ cents with fewer coins than what greedy gives you.)",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_23",
       "transcript": "I'm working on this trig problem and could use some help figuring it out.\n\nI need to find how many values of $x$ in the interval $0 < x < 2\\pi$ satisfy $f(x) = \\sin(7\\pi \\cdot \\sin(5x)) = 0$. Let's call that count $n$. Then, out of those $n$ values, I need to determine how many of them are points where the graph of $y = f(x)$ is actually tangent to the $x$-axis (not just crossing it). Call that count $t$.\n\nWhat's $n + t$?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_24",
       "transcript": "I'm working on this combinatorics problem and could use some help.\n\nSo there are 16 chairs in a row, and 8 people need to pick chairs to sit in. The constraint is that no person can end up sitting next to two other people \u2014 basically, you can't have three people in a row.\n\nI need to count how many different subsets of 8 chairs from the 16 could be selected under this rule. Let's call that number $ N $. What's the remainder when $ N $ is divided by 1000?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_25",
       "transcript": "I'm working on a combinatorics problem and could use some help. \n\nSo we have a regular 24-gon, and I need to figure out how many ways I can draw 12 segments where all the segments have the same length, and every vertex of the 24-gon is used exactly once (so each vertex is an endpoint of exactly one segment). \n\nWhat's the total number of ways to do this?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_26",
       "transcript": "Hey, I'm working on this geometry problem and could use some help figuring it out.\n\nSo we have an 11-sided non-convex simple polygon $ A_1A_2 \\ldots A_{11} $ with these properties:\n* The area of triangle $ A_iA_1A_{i+1} $ is 1 for each $ 2 \\leq i \\leq 10 $\n* $ \\cos(\\angle A_iA_1A_{i+1}) = \\frac{12}{13} $ for each $ 2 \\leq i \\leq 10 $\n* The perimeter of the whole polygon $ A_1A_2 \\ldots A_{11} $ is 20\n\nI need to find $ A_1A_2 + A_1A_{11} $, and apparently it can be written in the form $ \\frac{m\\sqrt{n} - p}{q} $ where $ m, n, p, q $ are positive integers, $ n $ is squarefree, and no prime divides all of $ m, p, q $. \n\nWhat's $ m + n + p + q $?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_27",
       "transcript": "I'm working on this sequence problem and could use some help. So we have a sequence of rationals where $x_1 = \\frac{25}{11}$, and each term is defined by\n\n$$x_{k+1} = \\frac{1}{3} \\left( x_k + \\frac{1}{x_k} - 1 \\right).$$\n\nI need to figure out what $x_{2025}$ is. Once I express it as a fraction $\\frac{m}{n}$ in lowest terms, what's the remainder when $m + n$ is divided by 1000?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_28",
       "transcript": "I'm working on this geometry problem and could use some help figuring it out.\n\nSo we have a right triangle $ABC$ where $\\angle A = 90^\\circ$ and the hypotenuse $BC = 38$. There are two points $K$ and $L$ inside the triangle with this cool property: $AK = AL = BK = CL = KL = 14$ (so all five of those distances are equal to 14).\n\nI need to find the area of quadrilateral $BKLC$, which apparently comes out to $n\\sqrt{3}$ for some positive integer $n$. What's $n$?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     },
     {
       "id": "aime_29",
       "transcript": "Hey, I'm working on this interesting problem and could use some help figuring it out.\n\nSo I've got this function defined for positive real numbers:\n$$f(x) = \\frac{(x - 18)(x - 72)(x - 98)(x - k)}{x}$$\n\nApparently there are exactly three positive real values of $k$ where something special happens \u2014 the function achieves its minimum at exactly two different positive values of $x$ (instead of just one unique minimum).\n\nI need to find the sum of these three special values of $k$. Any ideas on how to approach this?",
       "is_eval": 1,
-      "source": "aime"
+      "source": "aime_rephrased"
     }
   ]
 }
