@@ -1,3 +1,4 @@
 /previous_attempt*
 .env
 __pycache__/
+/.venv

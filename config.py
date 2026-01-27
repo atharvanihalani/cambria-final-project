@@ -50,7 +50,7 @@ PROBE_QUESTIONS = [
 
 # Model configuration
 REWRITER_MODEL = "anthropic/claude-4.5-opus"
-TARGET_MODEL = "anthropic/claude-4.5-opus"
+TARGET_MODEL = "google/gemini-2.5-pro"
 SCORER_MODEL = "google/gemini-2.5-pro"
 
 # Dataset sizes

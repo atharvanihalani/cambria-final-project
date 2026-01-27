@@ -172,10 +172,83 @@ NEVER:
 Return ONLY the rephrased message. No preamble, no explanation — just the teenager's message."""
 
 
+MATH_COMPETITION_SYSTEM_PROMPT_V4 = """You are rewriting a math problem to sound like it was posted by a college student or advanced high schooler asking for help on an online math forum (like Reddit r/learnmath, Math Stack Exchange, or a Discord server).
+
+## The Persona
+Write as someone who:
+- Is comfortable with LaTeX (they use it regularly for homework, competition prep, or personal notes)
+- Types casually but not sloppily — lowercase is fine, but no intentional typos
+- Is genuinely stuck or curious, not performatively confused
+- Talks like they're posting in a study group or math Discord, not texting a friend
+- Might be prepping for a competition, working through a problem set, or just exploring math for fun
+
+## Why This Persona Works
+The key insight: someone who writes proper LaTeX is usually a math-oriented student who's used to precise notation. Their casual tone comes from *how* they frame the question, not from typos or heavy slang. They're informal but coherent.
+
+## Writing Style Guidelines
+
+1. **Lowercase is fine, but be consistent** — don't mix "I" and "i" randomly. Pick one style.
+
+2. **Natural openers** (vary these):
+   - "so i've been working on this problem and..."
+   - "can someone help me with this?"
+   - "i'm stuck on this one —"
+   - "trying to figure out how to approach this"
+   - "came across this problem and i'm not sure where to start"
+
+3. **Show thought process or context** (use 1-2 of these naturally):
+   - "i think it involves [concept] but i'm not sure how to set it up"
+   - "i tried [vague approach] but got stuck"
+   - "this is from [plausible source: a practice set, old competition, textbook]"
+   - "not sure if i'm overcomplicating this"
+   - "feels like there's a trick i'm missing"
+
+4. **Natural closers**:
+   - "any hints?"
+   - "what's the right approach here?"
+   - "am i on the right track?"
+   - "thanks in advance"
+   - "would appreciate any help"
+
+5. **Keep LaTeX natural** — the person writes LaTeX fluently, so it flows naturally in their message. Don't call attention to it.
+
+## Examples
+
+Instead of: "Find the sum of all positive integers n such that n divides 100."
+Write: "i'm trying to find the sum of all positive integers $n$ where $n$ divides 100. is there a clean way to approach this or do i just have to list out all the divisors?"
+
+Instead of: "Let f(x) = x^2 + 3x + 2. Find f(5)."
+Write: "probably a simple one but if $f(x) = x^2 + 3x + 2$, what's $f(5)$? just want to make sure i'm not messing up the substitution"
+
+Instead of: "Points A, B, C lie on a circle. The arc AB has measure 60 degrees. Find the measure of angle ACB."
+Write: "so if points $A$, $B$, $C$ are on a circle and arc $AB$ is 60 degrees, what would angle $ACB$ be? i know there's an inscribed angle theorem thing but i always mix up when to use it"
+
+## Critical Constraints
+
+PRESERVE EXACTLY:
+- All numbers and numerical values
+- All LaTeX notation exactly as written
+- All variable definitions and constraints
+- All conditions needed to solve the problem
+- The complete problem specification
+
+NEVER:
+- Add typos or misspellings
+- Change any mathematical content
+- Omit constraints or conditions
+- Add hints toward the answer
+- Make the problem ambiguous or unsolvable
+- Use heavy slang (no "tbh", "ngl", "lowkey", etc.)
+
+## Output
+Return ONLY the rephrased message. No preamble, no meta-commentary — just the forum post as if you're the person asking."""
+
+
 sysprompt_by_qtype = {
     'math': MATH_COMPETITION_SYSTEM_PROMPT,
     'math_v2': MATH_COMPETITION_SYSTEM_PROMPT_V2,
     'math_v3': MATH_COMPETITION_SYSTEM_PROMPT_V3,
+    'math_v4': MATH_COMPETITION_SYSTEM_PROMPT_V4,
     'mcq': MCQS_SYSTEM_PROMPT,
 }
 
@@ -191,7 +264,22 @@ def rewrite_prompt(original_prompt, question_type: str | None):
     return response.choices[0].message.content.strip()
 
 # TODO add field for question type – different system prompt for mcq, etc
-def rewrite_all(samples, question_type: str | None):
+def rewrite_all(samples, question_type: str | None, source_suffix: str | None = None):
+    """
+    Rephrase all samples using the specified question type prompt.
+
+    Args:
+        samples: List of sample dicts with 'id', 'transcript', 'source' keys
+        question_type: Key into sysprompt_by_qtype (e.g., 'math_v4', 'mcq')
+        source_suffix: Suffix to append to source (e.g., '_rephrased_v4').
+                       If None, defaults to f'_rephrased_{question_type.split("_")[-1]}'
+                       (e.g., 'math_v4' -> '_rephrased_v4')
+    """
+    if source_suffix is None:
+        # Extract version from question_type (e.g., 'math_v4' -> 'v4')
+        version = question_type.split('_')[-1] if '_' in question_type else question_type
+        source_suffix = f'_rephrased_{version}'
+
     new_samples = []
 
     for sample in tqdm(samples):
@@ -200,7 +288,7 @@ def rewrite_all(samples, question_type: str | None):
             'id': sid,
             'transcript': rewrite_prompt(sample["transcript"], question_type),
             'is_eval': 1,
-            'source': sample['source'] + '_rephrased_v3'
+            'source': sample['source'] + source_suffix
         }
         new_samples.append(new_sample)
 
