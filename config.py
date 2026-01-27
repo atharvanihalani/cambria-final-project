@@ -12,6 +12,11 @@ client = openai.OpenAI(
     api_key=os.getenv("OPENROUTER_API_KEY"),
 )
 
+async_client = openai.AsyncOpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=os.getenv("OPENROUTER_API_KEY"),
+)
+
 # %%
 
 # Probe questions from the paper (can add more later)
@@ -50,7 +55,7 @@ PROBE_QUESTIONS = [
 
 # Model configuration
 REWRITER_MODEL = "anthropic/claude-4.5-opus"
-TARGET_MODEL = "google/gemini-2.5-pro"
+TARGET_MODEL = "anthropic/claude-4.5-sonnet"
 SCORER_MODEL = "google/gemini-2.5-pro"
 
 # Dataset sizes

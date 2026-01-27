@@ -1,6 +1,7 @@
 import json
+import asyncio
 from tqdm.asyncio import tqdm
-from config import client, REWRITER_MODEL
+from config import client, async_client, REWRITER_MODEL
 
 MCQS_SYSTEM_PROMPT = """You are helping to rephrase evaluation benchmark questions to sound like natural user requests.
 
@@ -293,3 +294,59 @@ def rewrite_all(samples, question_type: str | None, source_suffix: str | None = 
         new_samples.append(new_sample)
 
     return new_samples
+
+
+# ============================================================================
+# Async (parallel) versions for faster rephrasing
+# ============================================================================
+
+async def rewrite_prompt_async(original_prompt: str, question_type: str, semaphore: asyncio.Semaphore) -> str:
+    """Async version of rewrite_prompt for parallel processing."""
+    async with semaphore:
+        response = await async_client.chat.completions.create(
+            model=REWRITER_MODEL,
+            messages=[
+                {"role": "system", "content": sysprompt_by_qtype[question_type]},
+                {"role": "user", "content": f"Original evaluation question:\n{original_prompt}\n\nRephrase this to sound like a natural user request while preserving what's being asked:"}
+            ],
+            temperature=0.7,
+        )
+        return response.choices[0].message.content.strip()
+
+
+async def rewrite_all_async(
+    samples,
+    question_type: str,
+    source_suffix: str | None = None,
+    max_concurrent: int = 10
+):
+    """
+    Async parallel version of rewrite_all for faster processing.
+
+    Args:
+        samples: List of sample dicts with 'id', 'transcript', 'source' keys
+        question_type: Key into sysprompt_by_qtype (e.g., 'math_v3', 'mcq')
+        source_suffix: Suffix to append to source. If None, auto-generated from question_type.
+        max_concurrent: Maximum number of concurrent API calls (default: 10)
+
+    Usage:
+        samples = await rewrite_all_async(data, 'math_v3', max_concurrent=10)
+    """
+    if source_suffix is None:
+        version = question_type.split('_')[-1] if '_' in question_type else question_type
+        source_suffix = f'_rephrased_{version}'
+
+    semaphore = asyncio.Semaphore(max_concurrent)
+
+    async def process_one(sample):
+        sid = str(sample["id"])
+        transcript = await rewrite_prompt_async(sample["transcript"], question_type, semaphore)
+        return {
+            'id': sid,
+            'transcript': transcript,
+            'is_eval': 1,
+            'source': sample['source'] + source_suffix
+        }
+
+    tasks = [process_one(s) for s in samples]
+    return await tqdm.gather(*tasks)
