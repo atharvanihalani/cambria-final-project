@@ -1,0 +1,258 @@
+{
+  "dataset": "hmmt_feb_2025",
+  "model": "openai/gpt-5",
+  "timestamp": "2026-01-28T00:02:24.093110",
+  "total_samples": 30,
+  "correct": 12,
+  "accuracy": 0.4,
+  "errors": 7,
+  "results": [
+    {
+      "id": "hmmt_feb_2025_0",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "103",
+      "predicted": "103",
+      "is_correct": true,
+      "model_response": "First factor 9!:\n9! = 2^7 \u00b7 3^4 \u00b7 5^1 \u00b7 7^1.\n\nA divisor ending in 1 must be congruent to 1 mod 10, so it must be odd (no factor 2) and not divisible by 5 (no factor 5). Thus the relevant divisors are of the form 3^a\u00b77^b with a \u2208 {0,1,2,3,4} and b \u2208 {0,1}.\n\nWe need 3^a\u00b77^b \u2261 1 (mod 10). Compute possibilities:\n- If b = 0, need 3^a \u2261 1 (mod 10) \u2192 a \u2261 0 (mod 4) \u2192 a = 0 or 4 \u2192 divisors: 1, 81.\n- If b = 1, need 7\u00b73^a \u2261 1 (mod 10) \u2192 3^a \u2261 3 (mod 10) \u2192 a \u2261 1 (mod 4) \u2192 a = 1 \u2192 divisor: 21.\n\nSum of these divisors: 1 + 81 + 21 = 103.\n\n\\boxed{103}"
+    },
+    {
+      "id": "hmmt_feb_2025_1",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "3375",
+      "predicted": "3375",
+      "is_correct": true,
+      "model_response": "Let N = abcd = 1000a + M where M = bcd (a three-digit number, possibly with b = 0). The condition\nsqrt(N) = a sqrt(M)\nimplies, after squaring,\n1000a + M = a^2 M\nso\n1000a = (a^2 - 1) M\nand hence\nM = 1000a / (a^2 - 1).\n\nHere a \u2208 {2,3,...,9} (a \u2260 0 and a \u2260 1 to avoid division by zero), and M must be an integer with 1 \u2264 M \u2264 999.\n\nCheck a = 2..9:\n- a = 2: 2000/3 not integer\n- a = 3: 3000/8 = 375 works\n- a = 4: 4000/15 not integer\n- a = 5: 5000/24 not integer\n- a = 6: 6000/35 not integer\n- a = 7: 7000/48 not integer\n- a = 8: 8000/63 not integer\n- a = 9: 9000/80 not integer\n\nThus a = 3, M = 375, giving N = 1000\u00b73 + 375 = 3375. Indeed,\nsqrt(3375) = sqrt(225\u00b715) = 15 sqrt(15) = 3 sqrt(25\u00b715) = 3 sqrt(375).\n\nTherefore, the only possible four-digit number is \\boxed{3375}."
+    },
+    {
+      "id": "hmmt_feb_2025_2",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "\\frac{1}{576}",
+      "predicted": "577",
+      "is_correct": false,
+      "model_response": "Let A = log\u2082x, B = log\u2082y, C = log\u2082z, and let t = log\u20823.\n\nFrom the given,\n- x^{log\u2082(yz)} = 2^{8}\u00b73^{4} \u21d2 A(B+C) = 8 + 4t\n- y^{log\u2082(zx)} = 2^{9}\u00b73^{6} \u21d2 B(C+A) = 9 + 6t\n- z^{log\u2082(xy)} = 2^{5}\u00b73^{10} \u21d2 C(A+B) = 5 + 10t\n\nLet P = AB, Q = BC, R = CA. Then:\n- P + R = 8 + 4t\n- Q + P = 9 + 6t\n- R + Q = 5 + 10t\n\nSolving gives P = 6, Q = 3 + 6t, R = 2 + 4t.\n\nNow,\n- A^2 = (PR)/Q = 6(2+4t)/(3+6t) = 4 \u21d2 |A| = 2\n- B^2 = (PQ)/R = 6(3+6t)/(2+4t) = 9 \u21d2 |B| = 3\n- C^2 = (QR)/P = [(3+6t)(2+4t)]/6 = (1+2t)^2 \u21d2 |C| = 1 + 2t\n\nThus A + B + C = \u00b1(2 + 3 + 1 + 2t) = \u00b1(6 + 2t). Then\nxyz = 2^{A+B+C} is minimized when A+B+C = \u2212(6 + 2t), giving\nxyz_min = 2^{-(6+2t)} = 1/(2^6 \u00b7 (2^t)^2) = 1/(64 \u00b7 9) = 1/576.\n\nSince AIME answers are integers, the requested answer is 1 + 576 = 577.\n\n\\boxed{577}"
+    },
+    {
+      "id": "hmmt_feb_2025_3",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "-984",
+      "predicted": "2",
+      "is_correct": false,
+      "model_response": "Pair terms j and -j-1. Let a = j + 0.5 > 0; then the paired terms are:\nfloor(2025/a) + floor(2025/(-a)) = floor(x) - ceil(x), where x = 2025/a.\nThis equals 0 if x is an integer, and -1 otherwise.\n\nFor j = k and j = -k-1 with k = 0,1,...,999, we have a = k + 0.5, so\nx = 2025/(k+0.5) = 4050/(2k+1).\nThus x is an integer exactly when 2k+1 divides 4050. The odd divisors of 4050 = 2\u00b73^4\u00b75^2 are 3^a\u00b75^b with a=0..4, b=0..2, totaling 15 values; among them, 2025 is the only one exceeding 1999, so there are 14 such divisors in {1,3,5,...,1999}. Therefore, among the 1000 pairs, 14 contribute 0 and 986 contribute -1, giving -986 from all pairs.\n\nThe unpaired term is j=1000:\nfloor(2025/(1000.5)) = floor(4050/2001) = 2.\n\nTotal sum = -986 + 2 = -984.\n\n\\boxed{-984}"
+    },
+    {
+      "id": "hmmt_feb_2025_4",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "890",
+      "predicted": "890",
+      "is_correct": true,
+      "model_response": "Let a = \u221a3 + \u221a2 and b = \u221a3 \u2212 \u221a2. Note ab = (\u221a3+\u221a2)(\u221a3\u2212\u221a2) = 1, so b = 1/a.\n\nWe need monic integer polynomials P such that P(a) = P(b) = P(1/a). Over Q(\u221a3), a and b are the two roots of\nx^2 \u2212 2\u221a3 x + 1 = 0,\nso any polynomial P(x) reduces modulo this quadratic to a linear form \u03b1 + \u03b2 x with \u03b1, \u03b2 \u2208 Q(\u221a3), and P(a) = P(b) iff \u03b2 = 0.\n\nCheck minimal degree:\n\n- Degree 1: P(x) = x + c \u21d2 remainder is c + x, so \u03b2 = 1 \u2260 0. Impossible.\n- Degree 2: P(x) = x^2 + ax + b \u21d2 using x^2 \u2261 2\u221a3 x \u2212 1, remainder is (b \u2212 1) + (a + 2\u221a3)x. To have \u03b2 = 0 would require a = \u22122\u221a3, impossible over integers.\n\n- Degree 3: Let P(x) = x^3 + ax^2 + bx + c.\nCompute modulo x^2 \u2212 2\u221a3 x + 1:\nx^2 \u2261 2\u221a3 x \u2212 1, and x^3 = x\u00b7x^2 \u2261 x(2\u221a3 x \u2212 1) \u2261 2\u221a3 x^2 \u2212 x \u2261 2\u221a3(2\u221a3 x \u2212 1) \u2212 x \u2261 11x \u2212 2\u221a3.\nThus the remainder is (c \u2212 a \u2212 2\u221a3) + (11 + 2\u221a3 a + b)x.\nSetting \u03b2 = 0 forces a = 0 and b = \u221211. Therefore all degree-3 monic solutions are\nP(x) = x^3 \u2212 11x + c, with c \u2208 Z.\n\nHence the minimal degree is 3, and for any such Q,\nQ(10) \u2212 Q(0) = (10^3 \u2212 11\u00b710 + c) \u2212 (0 \u2212 0 + c) = 1000 \u2212 110 = 890.\n\nAnswer: \\boxed{890}"
+    },
+    {
+      "id": "hmmt_feb_2025_5",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "\\frac{1311}{2017}",
+      "predicted": "1311",
+      "is_correct": false,
+      "model_response": "Let N = 2025!. Let v = v_{2017}(N). Since 2017 is prime and 2017^2 > 2025, we have v = \u230a2025/2017\u230b = 1. Thus N = 2017\u00b7M with gcd(M,2017)=1.\n\nFor any prime power p^k dividing M (so p \u2260 2017), Euler\u2019s theorem applies: \u03c6(p^k) = p^{k-1}(p\u22121) divides 2025!, hence 2017^{2025!} \u2261 1 mod p^k. Therefore 2017^{2025!} \u2212 1 \u2261 0 mod M.\n\nModulo 2017, we have 2017^{2025!} \u2261 0, so 2017^{2025!} \u2212 1 \u2261 \u22121 mod 2017. Hence the remainder r modulo N satisfies:\n- r \u2261 0 mod M,\n- r \u2261 \u22121 mod 2017.\n\nWrite r = M\u00b7t with 0 \u2264 t < 2017. Then M\u00b7t \u2261 \u22121 mod 2017, so t \u2261 \u2212M^{-1} mod 2017. Consequently,\nr/N = (M\u00b7t)/(2017\u00b7M) = t/2017.\n\nCompute M mod 2017:\nM \u2261 (2025!/2017) \u2261 2016! \u00b7 (2018\u00b7\u2026\u00b72025) \u2261 2016! \u00b7 (1\u00b72\u00b7\u2026\u00b78) \u2261 (\u22121)\u00b78! mod 2017 by Wilson\u2019s theorem.\n8! = 40320 \u2261 \u221220 mod 2017, so M \u2261 \u2212(\u221220) \u2261 20 mod 2017.\n\nThus M^{-1} \u2261 20^{-1} mod 2017. Solve 20x \u2261 1 mod 2017; one finds x = 706. Hence t \u2261 \u2212706 \u2261 2017 \u2212 706 = 1311 mod 2017, and with 0 \u2264 t < 2017 we take t = 1311.\n\nTherefore r/2025! = t/2017 = 1311/2017.\n\nFinal answer: \\boxed{1311/2017}"
+    },
+    {
+      "id": "hmmt_feb_2025_6",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "\\frac{9 \\sqrt{23}}{23}",
+      "predicted": "9",
+      "is_correct": false,
+      "model_response": "Let \u03bb = 2(a^2+1) = 3(b^2+1) = 4(c^2+1). Then\na = \u221a(\u03bb/2 \u2212 1), b = \u221a(\u03bb/3 \u2212 1), c = \u221a(\u03bb/4 \u2212 1),\nand the condition ab + bc + ca = 1 must hold.\n\nSet a = tan(x), b = tan(y), c = tan(z). The identity\ntan x tan y + tan y tan z + tan z tan x = 1\nholds when x + y + z = \u03c0/2. Moreover, from 2(a^2+1) = 3(b^2+1) = 4(c^2+1) we have\nsec^2 x = \u03bb/2, sec^2 y = \u03bb/3, sec^2 z = \u03bb/4,\nso cos^2 x = 2/\u03bb, cos^2 y = 3/\u03bb, cos^2 z = 4/\u03bb.\n\nLet X = 2x, Y = 2y, Z = 2z; then X + Y + Z = \u03c0 and\ncos X = 2 cos^2 x \u2212 1 = 4/\u03bb \u2212 1, cos Y = 6/\u03bb \u2212 1, cos Z = 8/\u03bb \u2212 1.\n\nUsing the identity for X + Y + Z = \u03c0:\ncos^2 X + cos^2 Y + cos^2 Z + 2 cos X cos Y cos Z = 1,\nand setting t = 1/\u03bb, we get\n(4t \u2212 1)^2 + (6t \u2212 1)^2 + (8t \u2212 1)^2 + 2(4t \u2212 1)(6t \u2212 1)(8t \u2212 1) = 1,\nwhich simplifies to 384 t^3 \u2212 92 t^2 = 0, hence t = 23/96 and \u03bb = 96/23.\n\nNow\na^2 + b^2 + c^2 = \u03bb(1/2 + 1/3 + 1/4) \u2212 3 = (13\u03bb)/12 \u2212 3,\nso\n(a + b + c)^2 = (a^2 + b^2 + c^2) + 2 = (13\u03bb)/12 \u2212 1\n= 13*(96/23)/12 \u2212 1 = 104/23 \u2212 1 = 81/23.\n\nTherefore,\na + b + c = 9/\u221a23.\n\nFinal answer: \\boxed{\\frac{9}{\\sqrt{23}}}"
+    },
+    {
+      "id": "hmmt_feb_2025_7",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "1-\\frac{2}{\\pi}",
+      "predicted": "2",
+      "is_correct": false,
+      "model_response": "Let s_n = sgn(sin(2^n)) and define d_n = (s_n + 1)/2 \u2208 {0,1}. Then\nS = \u2211_{n=1}^\u221e s_n/2^n = 2\u2211_{n=1}^\u221e d_n/2^n \u2212 1.\n\nWrite \u03b1 = 1/(2\u03c0). Note that sin(2^n) > 0 iff the fractional part of 2^n/(2\u03c0) is in (0, 1/2), i.e., iff {2^n \u03b1} < 1/2. If \u03b1 has binary expansion \u03b1 = 0.b1 b2 b3\u2026, then {2^n \u03b1} = 0.b_{n+1} b_{n+2}\u2026, so {2^n \u03b1} < 1/2 iff b_{n+1} = 0. Hence d_n = 1 \u2212 b_{n+1}.\n\nTherefore,\n\u2211_{n=1}^\u221e d_n/2^n = \u2211_{n=1}^\u221e (1 \u2212 b_{n+1})/2^n = 1 \u2212 \u2211_{n=1}^\u221e b_{n+1}/2^n.\nBut \u2211_{n=1}^\u221e b_{n+1}/2^n = 0.b2 b3\u2026 = 2\u03b1 \u2212 b1. Since \u03b1 = 1/(2\u03c0) < 1/2, we have b1 = 0, so this equals 2\u03b1.\n\nThus \u2211 d_n/2^n = 1 \u2212 2\u03b1, and\nS = 2(1 \u2212 2\u03b1) \u2212 1 = 1 \u2212 4\u03b1 = 1 \u2212 4\u00b7(1/(2\u03c0)) = 1 \u2212 2/\u03c0.\n\n\\boxed{1-\\frac{2}{\\pi}}"
+    },
+    {
+      "id": "hmmt_feb_2025_8",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "1037",
+      "predicted": "1037",
+      "is_correct": true,
+      "model_response": "Let p = 2027. Work modulo p.\n\nWe interpolate f on all residues 0,1,2,...,p\u22121 (with 0 corresponding to n=2027). The Lagrange denominator at node i is D_i = \u220f_{j\u2260i} (i\u2212j) = (x^p\u2212x)'|_{x=i} \u2261 \u22121 (mod p). Thus for the Lagrange basis L_i(x), the coefficient of x^{p\u22122} is the x^{p\u22122} coefficient of the numerator divided by D_i. The numerator is \u220f_{j\u2260i} (x\u2212j), whose x^{p\u22122} coefficient equals \u2212\u2211_{j\u2260i} j = i (since \u2211_{j\u2208F_p} j \u2261 0). Hence the x^{p\u22122} coefficient of L_i(x) is i/(\u22121) = \u2212i.\n\nTherefore, the coefficient of x^{p\u22122} in f is\n\u2212\u2211 i\u00b7f(i) (mod p),\nwhere the sum runs over all residues i. Here f(i)=1 exactly when i is one of the perfect squares in {1,2,...,2027}, i.e., i = m^2 for m=1,...,45; and f(0)=0. Thus\n\u2211 i\u00b7f(i) = \u2211_{m=1}^{45} m^2.\n\nCompute S = \u2211_{m=1}^{45} m^2 = 45\u00b746\u00b791/6 = 31395 \u2261 990 (mod 2027).\nHence the desired coefficient \u2261 \u2212990 \u2261 2027\u2212990 = 1037 (mod 2027).\n\nTherefore, the required r is 1037.\n\n\\boxed{1037}"
+    },
+    {
+      "id": "hmmt_feb_2025_9",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "\\frac{-1+\\sqrt{17}}{2}, \\frac{-1-\\sqrt{17}}{2}",
+      "predicted": null,
+      "is_correct": false,
+      "model_response": "Error: ",
+      "error": true
+    },
+    {
+      "id": "hmmt_feb_2025_10",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "56",
+      "predicted": "56",
+      "is_correct": true,
+      "model_response": "We need all adjacent products \u2264 20. Build the compatibility graph on {1,2,3,4,5,6,7}: connect a and b if ab \u2264 20. The key degrees are:\n- 1 connects to everyone.\n- 2 connects to everyone.\n- 3 connects to 1\u20136 (not 7).\n- 4 connects to 1\u20135.\n- 5 connects to 1\u20134.\n- 6 connects to 1\u20133.\n- 7 connects only to 1 and 2.\n\nThus in any valid circle, 7 must be adjacent to both 1 and 2 (its only neighbors). So around 7 we must have either \u2026-1-7-2-\u2026 or \u2026-2-7-1-\u2026.\n\nSince rotations are counted as different, fix 7 at a specific position (say position 1). Then there are exactly 2 choices for (p7, p2) = (1,2) or (2,1). The remaining numbers {3,4,5,6} must fill the middle positions p3, p4, p5, p6 so that consecutive pairs among them respect the product constraint.\n\nWithin {3,4,5,6}, allowed adjacencies are:\n- 3 adjacent to 4,5,6\n- 4 adjacent to 3,5\n- 5 adjacent to 3,4\n- 6 adjacent only to 3\n\nSo 6 must be an endpoint of the 4-term path, adjacent to 3. The possible Hamiltonian paths (ordered sequences) on {3,4,5,6} are:\n(6,3,4,5), (6,3,5,4), (5,4,3,6), (4,5,3,6),\ni.e., 4 possibilities.\n\nEndpoints 1 and 2 connect to any of 3,4,5,6, so no further restriction. Therefore, with 7 fixed, there are 2 \u00d7 4 = 8 valid sequences. Since rotations are distinct, multiply by 7 positions for 7: total 7 \u00d7 8 = 56.\n\nAnswer: \\boxed{56}"
+    },
+    {
+      "id": "hmmt_feb_2025_11",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "29",
+      "predicted": "29",
+      "is_correct": true,
+      "model_response": "Label the 3\u00d73 grid with coordinates, with the bottom-left as (1,1) and the top-right as (3,3). We must remove 4 lily pads while keeping (1,1) and (3,3), so we choose 4 to remove from the remaining 7 pads. There are C(7,4)=35 such choices.\n\nKevin can get home if and only if there is a path from (1,1) to (3,3). After removing 4 pads, exactly 5 pads remain: the two corners and exactly 3 other pads. Any path from (1,1) to (3,3) must have length at least 4 (Manhattan distance), and with only 5 pads left, a simple path can have at most 4 edges. Therefore, a path exists if and only if the 3 remaining interior pads are exactly the three intermediate vertices of a shortest (monotone) path.\n\nThe number of shortest paths from (1,1) to (3,3) is C(4,2)=6, and each corresponds to keeping exactly one specific set of 3 interior pads. Hence, there are exactly 6 choices of 3 pads to keep (equivalently, 4 to remove) that still allow a path.\n\nTherefore, the number of ways to remove 4 pads so Kevin cannot get home is 35 \u2212 6 = 29.\n\n\\boxed{29}"
+    },
+    {
+      "id": "hmmt_feb_2025_12",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "105",
+      "predicted": "266",
+      "is_correct": false,
+      "model_response": "We model the arrangement by looking at the 15 edges between consecutive labels: (1,2), (2,3), \u2026, (15,16). Mark an edge as 1 if the two balls are placed in the same box, and 0 otherwise.\n\nConstraints:\n- Ball 1 must share a box with 2, and ball 16 with 15, so the first and last edges must be 1.\n- No ball can be isolated, so no two consecutive edges can both be 0.\n- Within any box of four balls, the allowed patterns are either four consecutive numbers (edges 111) or two disjoint adjacent pairs (each contributes a 1, disjoint from the other). Thus runs of 1\u2019s can only have length 1 or 3; runs of length 2 or \u22654 are not allowed.\n\nTherefore, the edge string is of the form:\n1^a1 0 1^a2 0 \u2026 0 1^am\nwhere each ai \u2208 {1,3}, no consecutive zeros, and the total length is 15. This implies:\n(a1 + \u2026 + am) + (m \u2212 1) = 15  =>  (a1 + \u2026 + am) + m = 16.\n\nLet x be the number of runs of length 3, and y the number of runs of length 1. Then:\n3x + y + (x + y) = 16  =>  4x + 2y = 16  =>  2x + y = 8.\n\nFor fixed (x,y), the number of such edge strings is C(x + y, x) (choose which runs are length 3). Each length-3 run corresponds to a 4-consecutive block, already forming a box. The y single-edge runs correspond to y disjoint adjacent pairs, which must be paired up into y/2 boxes. The number of ways to pair y items is (y \u2212 1)!!.\n\nCompute over all solutions (x,y) to 2x + y = 8:\n- x=0, y=8: count = C(8,0) \u00b7 7!! = 1 \u00b7 105 = 105\n- x=1, y=6: count = C(7,1) \u00b7 5!! = 7 \u00b7 15 = 105\n- x=2, y=4: count = C(6,2) \u00b7 3!! = 15 \u00b7 3 = 45\n- x=3, y=2: count = C(5,3) \u00b7 1!! = 10 \u00b7 1 = 10\n- x=4, y=0: count = C(4,4) \u00b7 (\u22121)!! = 1 \u00b7 1 = 1\n\nTotal = 105 + 105 + 45 + 10 + 1 = 266.\n\nThus, the number of ways is \\boxed{266}."
+    },
+    {
+      "id": "hmmt_feb_2025_13",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "2304",
+      "predicted": "2304",
+      "is_correct": true,
+      "model_response": "Let s = x + y be the \u201clevel.\u201d The steps E = (x+1, y) and N = (x, y+1) increase s by 1, while UL = (x\u22121, y+1) and DR = (x+1, y\u22121) keep s unchanged. Since s never decreases and we must reach (3,3) with s = 6, we will move up exactly six times (from levels 0\u21921\u2192\u2026\u21926). We can only move laterally (UL/DR) within a level before taking one upward step to the next level.\n\nKey observations:\n- Each level is visited at most once (since s never decreases).\n- Within a level, the points form a line segment; a self-avoiding lateral run from the entry point to any other point on that level is unique (you must move monotonically along the segment; reversing would revisit a point).\n- Therefore, any path is uniquely determined by choosing, for each level k = 0,1,2,3,4,5, which upward edge (E or N from some point on level k) to use to go to level k+1. Conversely, any such choice yields a valid path (move laterally to the chosen point, then go up).\n\nHence, the number of paths equals the product over k of the number U_k of upward edges from level k to level k+1.\n\nCount U_k by listing points on each level and their valid upward moves (staying within 0 \u2264 x,y \u2264 3):\n- Level 0: (0,0) \u2192 E,N: U_0 = 2\n- Level 1: (1,0),(0,1), each has E,N: U_1 = 4\n- Level 2: (0,2),(1,1),(2,0), each has E,N: U_2 = 6\n- Level 3: (0,3): E; (1,2): E,N; (2,1): E,N; (3,0): N \u2192 U_3 = 6\n- Level 4: (1,3): E; (2,2): E,N; (3,1): N \u2192 U_4 = 4\n- Level 5: (2,3): E; (3,2): N \u2192 U_5 = 2\n\nThus total paths = 2 \u00d7 4 \u00d7 6 \u00d7 6 \u00d7 4 \u00d7 2 = 2304.\n\nFinal answer: \\boxed{2304}"
+    },
+    {
+      "id": "hmmt_feb_2025_14",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "200",
+      "predicted": "200",
+      "is_correct": true,
+      "model_response": "Think of the 11\u00d711 grid of cells as a graph with one vertex per cell and an edge (door) between edge-adjacent cells.\n\n- Total number of edges: There are 11 rows with 10 horizontal doors each, and 11 columns with 10 vertical doors each, so total edges = 11\u00b710 + 11\u00b710 = 220.\n\n- For a closed walk that uses each door at most once, we need an Eulerian subgraph (all degrees even). Currently, interior cells have degree 4 (even), corners have degree 2 (even), and the 36 non-corner boundary cells have degree 3 (odd). So we must remove some edges so that all these 36 boundary vertices become even.\n\n- Each removed edge flips parity at its two endpoints. Let\u2019s count the minimum number of removed edges needed.\n\n  For each side of the grid, there are 9 odd-degree boundary cells. On a given side:\n  - Edges removed along that side (between two boundary neighbors) contribute 2 to the count of odd vertices on that side.\n  - Edges removed from that side to a non-boundary cell (e.g., to a corner or inward) contribute 1.\n\n  Since 9 is odd, on each side the number of \u201cleaving\u201d edges must be odd, so at least 1 per side. Across the four sides, that\u2019s at least 4 such edges total. The remaining 8 odd vertices per side must be fixed by within-side pairings, which requires at least 4 edges per side, i.e., 16 edges total. Therefore, at least 4 + 16 = 20 edges must be removed.\n\n- This bound is achievable: On each side, pair up 8 of the 9 boundary cells by removing 4 alternating side-edges. The remaining one odd vertex on each of two adjacent sides can be paired across their common corner by removing the two edges to that corner; do this at two corners. That removes exactly 16 + 4 = 20 edges, makes all degrees even, and the graph remains connected, so an Eulerian circuit exists on the remaining edges.\n\nHence the maximum number of doors Karthik can go through is 220 \u2212 20 = 200.\n\n\\boxed{200}"
+    },
+    {
+      "id": "hmmt_feb_2025_15",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "6300",
+      "predicted": "6300",
+      "is_correct": true,
+      "model_response": "Let the 5\u00d75 grid have 6 vertical and 6 horizontal grid lines. A rectangle is determined by choosing two distinct vertical lines and two distinct horizontal lines. So the total number of rectangles is R = C(6,2)^2 = 15^2 = 225.\n\nWe want the number of unordered pairs of rectangles that do not touch (no overlap of interiors, edges, or vertices). This happens if and only if they are separated in at least one axis by a positive gap. Use inclusion-exclusion over horizontal and vertical separation.\n\n- Horizontally separated pairs (H):\n  Choose disjoint x-intervals with a gap: this is equivalent to choosing 4 distinct vertical lines a < b < c < d and taking intervals [a,b] and [c,d], giving C(6,4) = 15 possibilities. For each rectangle, choose any y-interval (15 choices each). Thus H = 15 \u00d7 15 \u00d7 15 = 3375.\n\n- Vertically separated pairs (V): by symmetry, V = 3375.\n\n- Counted twice (both horizontally and vertically separated) (B):\n  Choose 4 vertical lines and 4 horizontal lines: C(6,4) \u00d7 C(6,4) = 15 \u00d7 15. Assign the lower y-interval to either the left or right rectangle (2 ways). Hence B = 15 \u00d7 15 \u00d7 2 = 450.\n\nTherefore the number of valid unordered pairs is:\nH + V \u2212 B = 3375 + 3375 \u2212 450 = 6300.\n\nAnswer: \\boxed{6300}"
+    },
+    {
+      "id": "hmmt_feb_2025_16",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "2^{25} \\cdot 26!",
+      "predicted": null,
+      "is_correct": false,
+      "model_response": "Error: ",
+      "error": true
+    },
+    {
+      "id": "hmmt_feb_2025_17",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "\\frac{2025}{101}",
+      "predicted": "2025",
+      "is_correct": false,
+      "model_response": "Let n = 2025 and t = 100. After t seconds, each entry becomes the maximum over its radius-t neighborhood, i.e., over a block of length L = 2t + 1 = 201. Denote M_i = max{a_{i-100}, \u2026, a_{i+100}}.\n\nAs i increases by 1, the window shifts by 1: we drop u = a_{i-100} and add v = a_{i+101}. Let C be the overlap of size L\u22121 = 200. Then M_i changes to M_{i+1} if and only if max(u, v) > max(C), i.e., if the maximum among the L+1 elements {u} \u222a C \u222a {v} lies at one of the two ends u or v. By symmetry of i.i.d. continuous samples, the maximum among these L+1 elements is equally likely to be any one of them, so\nP(M_{i+1} \u2260 M_i) = 2/(L+1).\n\nThe number of distinct values around the circle equals the number of runs of the sequence {M_i}, which equals the number of indices i with M_{i+1} \u2260 M_i (because the argmax index moves monotonically to the right and cannot return). Hence the expected number of distinct values is\nE = n \u00b7 2/(L+1) = 2025 \u00b7 2/202 = 2025/101.\n\nTherefore, the expected number of distinct values after 100 seconds is\n\\boxed{2025/101}"
+    },
+    {
+      "id": "hmmt_feb_2025_18",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "\\frac{4}{9}",
+      "predicted": null,
+      "is_correct": false,
+      "model_response": "Error: ",
+      "error": true
+    },
+    {
+      "id": "hmmt_feb_2025_19",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "\\frac{448}{3}",
+      "predicted": null,
+      "is_correct": false,
+      "model_response": "Error: ",
+      "error": true
+    },
+    {
+      "id": "hmmt_feb_2025_20",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "26",
+      "predicted": "26",
+      "is_correct": true,
+      "model_response": "Let B, E, F, C lie on the x-axis with coordinates:\n- B = 0, E = 14, F = 29, C = 45. Thus BC = 45.\n\nSince triangles ABC and DEF are equilateral and A, D lie on the same side of the line, their apexes are directly above the midpoints of their bases:\n- Midpoint of BC is at x = (0+45)/2 = 22.5, so A = (22.5, (\u221a3/2)\u00b745).\n- Midpoint of EF is at x = (14+29)/2 = 21.5, so D = (21.5, (\u221a3/2)\u00b715).\n\nTherefore,\nAD = \u221a[(22.5\u221221.5)^2 + ((45\u221a3/2) \u2212 (15\u221a3/2))^2]\n   = \u221a[1^2 + (30\u221a3/2)^2]\n   = \u221a[1 + 675]\n   = \u221a676\n   = 26.\n\n\\boxed{26}"
+    },
+    {
+      "id": "hmmt_feb_2025_21",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "63",
+      "predicted": "63",
+      "is_correct": true,
+      "model_response": "Let the cave height be h. The tips\u2019 heights above the floor are:\n- stalactites: h \u2212 16 and h \u2212 36\n- stalagmites: 25 and 49\n\nIn any square, the y-coordinates of the vertices occur as two pairs symmetric about the square\u2019s center y0. Hence we must be able to pair the four numbers into two pairs with equal sum. Let T be the total sum; then each pair must sum to T/2.\n\nCompute:\nT = (h \u2212 16) + (h \u2212 36) + 25 + 49 = 2h + 22,\nso T/2 = h + 11.\n\nWe need a pair among {h \u2212 16, h \u2212 36, 25, 49} summing to h + 11. Checking pairs:\n- (h \u2212 16) + (h \u2212 36) = 2h \u2212 52 = h + 11 \u21d2 h = 63\n- 25 + 49 = 74 = h + 11 \u21d2 h = 63\nAll mixed-type pairs give contradictions.\n\nThus h = 63. Indeed, the four heights are 47, 27, 25, 49, which split into pairs (47, 27) and (49, 25), both summing to 74, as required for a square.\n\nAnswer: \\boxed{63}"
+    },
+    {
+      "id": "hmmt_feb_2025_22",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "8\\sqrt{10}",
+      "predicted": "640",
+      "is_correct": false,
+      "model_response": "Let the square have side length s and coordinates A(0,0), B(s,0), C(s,s), D(0,s). Let P = (x,y).\n\nThen the areas are:\n- [PAB] = (s\u00b7y)/2\n- [PBC] = (s\u00b7(s \u2212 x))/2\n- [PCD] = (s\u00b7(s \u2212 y))/2\n- [PDA] = (s\u00b7x)/2\n\nGiven the areas are {1,2,3,4}, their sum equals the area of the square, so s^2 = 10.\n\nIn a parallelogram (hence in a square), opposite triangles sum to half the area:\n[PAB] + [PCD] = [PBC] + [PDA] = s^2/2 = 5.\nThus the opposite pairs must be (1,4) and (2,3).\n\nFrom the formulas above,\ny, s \u2212 x, s \u2212 y, x are exactly {2\u00b71/s, 2\u00b72/s, 2\u00b73/s, 2\u00b74/s} = {2/s, 4/s, 6/s, 8/s},\nwith the two pairs that sum to s being (2/s, 8/s) and (4/s, 6/s).\n\nThen the squared distances to the vertices are\nPA^2 = x^2 + y^2, PB^2 = (s \u2212 x)^2 + y^2, PC^2 = (s \u2212 x)^2 + (s \u2212 y)^2, PD^2 = x^2 + (s \u2212 y)^2,\nwhich, from the pairings above, are the set {2, 4, 8, 10}.\n\nTherefore,\n(PA\u00b7PB\u00b7PC\u00b7PD)^2 = 2\u00b74\u00b78\u00b710 = 640,\nso PA\u00b7PB\u00b7PC\u00b7PD = 8\u221a10.\n\nSince AIME answers must be integers, we report the squared product:\n\\boxed{640}"
+    },
+    {
+      "id": "hmmt_feb_2025_23",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "20",
+      "predicted": "20",
+      "is_correct": true,
+      "model_response": "Let S3 have radius R = 10, with diameter AB on the x-axis from A = (\u2212R, 0) to B = (R, 0). Let S2 have center M = (x, y) and radius r2. Since S2\u2019s arc is tangent to AB at C, the center M is distance r2 from AB, so r2 = y and C = (x, 0).\n\nBecause S2\u2019s diameter is a chord of S3 of length 2r2 = 2y, the distance from O = (0, 0) to the chord equals OM = \u221a(R^2 \u2212 y^2). Hence\nx^2 + y^2 = OM^2 = R^2 \u2212 y^2,\nso x^2 = R^2 \u2212 2y^2. Therefore\nAC \u00b7 CB = (R + x)(R \u2212 x) = R^2 \u2212 x^2 = 2y^2.\n\nNow use S1. Its radius is r1 = 1, and its diameter is parallel to AB, so it is a horizontal chord of S2 of length 2. In S2 (center M, radius y), a chord of length 2 lies at perpendicular distance d = \u221a(y^2 \u2212 1) from M. The center N of S1 lies vertically below M by this distance, so N \u2212 M = (0, \u2212\u221a(y^2 \u2212 1)).\n\nThe diameter line of S2 is perpendicular to OM. Thus the (perpendicular) distance from N to this line equals the projection of N \u2212 M onto the unit vector along OM, which has length\n(\u221a(y^2 \u2212 1))\u00b7(y / \u221a(x^2 + y^2)).\nThis must equal the radius 1 of S1:\ny\u221a(y^2 \u2212 1)/\u221a(x^2 + y^2) = 1.\n\nBut \u221a(x^2 + y^2) = OM = \u221a(R^2 \u2212 y^2), so\ny^2(y^2 \u2212 1) = R^2 \u2212 y^2\n\u21d2 y^4 = R^2\n\u21d2 y^2 = R.\n\nTherefore AC \u00b7 CB = 2y^2 = 2R = 20.\n\n\\boxed{20}"
+    },
+    {
+      "id": "hmmt_feb_2025_24",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "\\sqrt{23}-2 \\sqrt{3}",
+      "predicted": null,
+      "is_correct": false,
+      "model_response": "Error: ",
+      "error": true
+    },
+    {
+      "id": "hmmt_feb_2025_25",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "9\\sqrt{15}",
+      "predicted": "24",
+      "is_correct": false,
+      "model_response": "Let AB \u2225 CD. Place coordinates:\n- A = (0, 0), B = (11, 0)\n- Let D = (x, h), C = (x + 19, h)\n\nGiven DA = 4 and BC = 8:\n- x^2 + h^2 = 16\n- (x + 8)^2 + h^2 = 64\n\nSubtracting gives 16x + 64 = 48 \u21d2 x = \u22121. Then h^2 = 16 \u2212 1 = 15 \u21d2 h = \u221a15.\n\nThus:\n- D = (\u22121, \u221a15), C = (18, \u221a15)\n\nCircumcenters:\n- For triangles with side AB, the perpendicular bisector is x = 5.5.\n- For triangles with side CD, the perpendicular bisector is x = 8.5.\n\nLet O1 = circumcenter of \u25b3ABC = (5.5, y1). Equate distances to A and C:\n30.25 + y1^2 = 156.25 + (\u221a15 \u2212 y1)^2 \u21d2 y1 = 141/(2\u221a15).\n\nLet O4 = circumcenter of \u25b3DAB = (5.5, y4). Equate distances to A and D:\n30.25 + y4^2 = 42.25 + (y4 \u2212 \u221a15)^2 \u21d2 y4 = 27/(2\u221a15).\n\nLet O2 = circumcenter of \u25b3BCD = (8.5, y2). Equate distances to B and C:\n6.25 + y2^2 = 90.25 + (\u221a15 \u2212 y2)^2 \u21d2 y2 = 99/(2\u221a15).\n\nLet O3 = circumcenter of \u25b3CDA = (8.5, y3). Equate distances to A and C:\n72.25 + y3^2 = 90.25 + (\u221a15 \u2212 y3)^2 \u21d2 y3 = 33/(2\u221a15).\n\nThese four points form a quadrilateral with vertical sides at x = 5.5 and x = 8.5 (width 3), and top edge O1O2, bottom edge O4O3. Its area equals width times the average of the vertical separations at the ends:\nArea = 3 \u00b7 [(y1 \u2212 y4) + (y2 \u2212 y3)]/2\n= 3 \u00b7 [ (141 \u2212 27) + (99 \u2212 33) ] / (4\u221a15)\n= 3 \u00b7 (180) / (4\u221a15)\n= 135/\u221a15\n= 9\u221a15.\n\nThus the area is 9\u221a15 = m\u221an with m = 9, n = 15, so the requested AIME integer is m + n = 24.\n\n\\boxed{24}"
+    },
+    {
+      "id": "hmmt_feb_2025_26",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "\\frac{7}{18}",
+      "predicted": "7",
+      "is_correct": false,
+      "model_response": "Let t = \u2220ABP = \u2220ACP. Then using area formulas with an included angle,\n[ABP]/[ACP] = (AB\u00b7BP\u00b7sin t)/(AC\u00b7CP\u00b7sin t) = (6\u00b71)/(8\u00b72) = 3/8.\nSo if x = [ABP], y = [ACP], z = [BPC], then x:y = 3:8.\n\nAlso,\nx/z = (AB/BC)\u00b7(sin t / sin(B \u2212 t)) = (6/7)\u00b7(sin t / sin(B \u2212 t)),\ny/z = (AC/BC)\u00b7(sin t / sin(C \u2212 t)) = (8/7)\u00b7(sin t / sin(C \u2212 t)).\n\nDividing these and using x/y = 3/8 gives\n(3/8) = ( (6/7)/(8/7) ) \u00b7 ( sin(C \u2212 t)/sin(B \u2212 t) ) = (3/4) \u00b7 ( sin(C \u2212 t)/sin(B \u2212 t) ),\nso sin(C \u2212 t) = (1/2) sin(B \u2212 t).\n\nFrom the side lengths (a=BC=7, b=AC=8, c=AB=6), Law of Cosines yields\ncos B = 1/4, sin B = \u221a15/4; cos C = 11/16, sin C = 3\u221a15/16.\n\nUsing sin(C \u2212 t) = (1/2) sin(B \u2212 t) and expanding,\n(sin C \u2212 (1/2) sin B) cos t = (cos C \u2212 (1/2) cos B) sin t,\nso tan t = (sin C \u2212 (1/2) sin B)/(cos C \u2212 (1/2) cos B) = (\u221a15/16)/(9/16) = \u221a15/9.\n\nFrom this one finds sin(B \u2212 t) = 2 sin t and sin(C \u2212 t) = sin t. Hence\nx/z = (6/7)\u00b7(sin t / sin(B \u2212 t)) = (6/7)\u00b7(1/2) = 3/7,\ny/z = (8/7)\u00b7(sin t / sin(C \u2212 t)) = (8/7).\n\nTherefore\n[ABC] = x + y + z = (3/7)z + (8/7)z + z = (18/7)z,\nso [BPC]/[ABC] = z/[ABC] = 7/18.\n\nFinal answer: \\boxed{7/18}"
+    },
+    {
+      "id": "hmmt_feb_2025_27",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "\\sqrt{6}",
+      "predicted": "19",
+      "is_correct": false,
+      "model_response": "Place the circle of radius 5 with center at the origin. Let the bases be horizontal and the trapezoid labeled in order A-B-C-D around the circle, with AB the shorter base.\n\n- Since AB = 4 is a chord of the circle of radius 5, its half-length is 2, so the perpendicular distance from the center to AB satisfies y1^2 = 25 \u2212 2^2 = 21. Thus A = (\u22122, y1), B = (2, y1), where y1^2 = 21.\n\n- Let the longer base CD lie parallel below, with C = (x2, y2), D = (\u2212x2, y2), where x2^2 + y2^2 = 25.\n\n- Since D lies between E and C and DE = 2 along the line CD, we have E = (\u2212x2 \u2212 2, y2).\n\n- The midpoint M of AE is\n  M = ((\u22122 + (\u2212x2 \u2212 2))/2, (y1 + y2)/2) = (\u2212(x2/2 + 2), (y1 + y2)/2).\n\nGiven that M also lies on the same circle of radius 5:\n|M|^2 = 25 \u21d2 (x2/2 + 2)^2 + ((y1 + y2)/2)^2 = 25.\nMultiplying by 4 gives\n(x2 + 4)^2 + (y1 + y2)^2 = 100.   (1)\n\nWe want MD. Compute\nMD^2 = ((\u2212x2) \u2212 (\u2212(x2/2 + 2)))^2 + (y2 \u2212 (y1 + y2)/2)^2\n     = (2 \u2212 x2/2)^2 + ((y2 \u2212 y1)/2)^2\n\u21d2 4 MD^2 = (x2 \u2212 4)^2 + (y2 \u2212 y1)^2.   (2)\n\nNow subtract (2) from (1):\n[(x2 + 4)^2 + (y1 + y2)^2] \u2212 [(x2 \u2212 4)^2 + (y2 \u2212 y1)^2] = 100 \u2212 4 MD^2.\nThe left side simplifies using (a + b)^2 \u2212 (a \u2212 b)^2 = 4ab:\n16 x2 + 4 y1 y2 = 100 \u2212 4 MD^2\n\u21d2 4 x2 + y1 y2 = 25 \u2212 MD^2.   (3)\n\nBut expanding (1) also yields directly:\n(x2 + 4)^2 + (y1 + y2)^2 = x2^2 + 8x2 + 16 + y1^2 + 2 y1 y2 + y2^2 = 100.\nUsing x2^2 + y2^2 = 25 and y1^2 = 21 gives\n25 + 21 + 8x2 + 2 y1 y2 + 16 = 100 \u21d2 8x2 + 2 y1 y2 = 38\n\u21d2 4 x2 + y1 y2 = 19.   (4)\n\nComparing (3) and (4) gives 25 \u2212 MD^2 = 19, so MD^2 = 6, hence MD = \u221a6.\n\nTherefore, the requested length is\n\\boxed{\\sqrt{6}}"
+    },
+    {
+      "id": "hmmt_feb_2025_28",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "14+4\\sqrt{37}",
+      "predicted": null,
+      "is_correct": false,
+      "model_response": "Error: ",
+      "error": true
+    },
+    {
+      "id": "hmmt_feb_2025_29",
+      "source": "hmmt_feb_2025",
+      "ground_truth": "\\sqrt{\\frac{95}{24}}",
+      "predicted": null,
+      "is_correct": false,
+      "model_response": "Error: ",
+      "error": true
+    }
+  ]
+}

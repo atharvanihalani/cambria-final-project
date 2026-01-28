@@ -1,0 +1,259 @@
+{
+  "dataset": "hmmt_nov_2025",
+  "model": "openai/gpt-5",
+  "timestamp": "2026-01-28T00:13:20.052831",
+  "total_samples": 30,
+  "correct": 15,
+  "accuracy": 0.5,
+  "errors": 8,
+  "results": [
+    {
+      "id": "hmmt_nov_2025_0",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "3",
+      "predicted": "3",
+      "is_correct": true,
+      "model_response": "Let the rectangle have coordinates:\n- A = (0, 0), B = (1, 0), C = (1, h), D = (0, h), so AB = 1 and BC = h.\n- X lies on BC: X = (1, t). Y lies on AD: Y = (0, s).\n\nRight angles give:\n- \u2220AXY = 90\u00b0 at X: (A \u2212 X) \u00b7 (Y \u2212 X) = 0 \u21d2 (-1, -t) \u00b7 (-1, s \u2212 t) = 1 \u2212 st + t^2 = 0.  (1)\n- \u2220XYC = 90\u00b0 at Y: (X \u2212 Y) \u00b7 (C \u2212 Y) = 0 \u21d2 (1, t \u2212 s) \u00b7 (1, h \u2212 s) = 1 + (t \u2212 s)(h \u2212 s) = 0.  (2)\n\nThe length ratio AX : XY : YC = 1 : 2 : 1 implies |AX| = |YC|, hence:\n- |AX|^2 = 1 + t^2, |YC|^2 = 1 + (h \u2212 s)^2 \u21d2 1 + t^2 = 1 + (h \u2212 s)^2 \u21d2 t = h \u2212 s.  (t \u2265 0)\n\nWith h \u2212 s = t, equation (2) becomes 1 + (t \u2212 s)t = 0 \u21d2 1 \u2212 st + t^2 = 0, which is the same as (1).\n\nFrom (1): st = 1 + t^2 \u21d2 s = t + 1/t.\nThen t \u2212 s = t \u2212 (t + 1/t) = \u22121/t.\n\nThe ratio |XY| : |AX| = 2 gives:\n- |XY|^2 = 1 + (t \u2212 s)^2 = 1 + 1/t^2, and |AX|^2 = 1 + t^2,\n- So 1 + (t \u2212 s)^2 = 4(1 + t^2) \u21d2 1 + 1/t^2 = 4 + 4t^2 \u21d2 4t^4 + 3t^2 \u2212 1 = 0.\n\nLet u = t^2. Then 4u^2 + 3u \u2212 1 = 0 \u21d2 u = 1/4 (discard u = \u22121). Hence t = 1/2.\nThen s = t + 1/t = 1/2 + 2 = 5/2, and h = s + t = 5/2 + 1/2 = 3.\n\nTherefore, BC = 3.\n\n\\boxed{3}"
+    },
+    {
+      "id": "hmmt_nov_2025_1",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "12",
+      "predicted": "12",
+      "is_correct": true,
+      "model_response": "Step 1: Parity constraints.\nSince adjacent integers differ by 1, their parities alternate around the circle. Thus n must be even. Moreover, exactly n/2 of the numbers are odd, so the parity of the total sum equals the parity of n/2. Given the sum is 24 (even), we must have n/2 even, i.e., n \u2261 0 (mod 4).\n\nStep 2: Upper bound on the sum for given n.\nPlace a 0 somewhere and traverse the circle as a linear sequence with steps of \u00b11. To maximize the total sum for fixed n = 2k, take all +1 steps first, then all \u22121 steps, with net change \u00b11 to satisfy the wrap-around. The optimal sequence (ending at +1) is:\n0, 1, 2, ..., k, k\u22121, ..., 1,\nwhose sum is 1 + 2 + ... + k + (k\u22121 + ... + 1) = k^2 = n^2/4.\nHence, for any valid configuration, sum \u2264 n^2/4.\n\nTherefore we need n^2/4 \u2265 24, i.e., n \u2265 10. Combined with n \u2261 0 (mod 4), the smallest candidate is n = 12.\n\nStep 3: Construction for n = 12.\nAn explicit configuration achieving sum 24 is:\n0, \u22121, 0, 1, 2, 3, 4, 5, 4, 3, 2, 1.\nAdjacent differences are 1, at least one entry is 0, and the sum is 24.\n\nHence the smallest n is 12.\n\n\\boxed{12}"
+    },
+    {
+      "id": "hmmt_nov_2025_2",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "1296",
+      "predicted": "1296",
+      "is_correct": true,
+      "model_response": "Think of each number 1, 2, 3, 4 separately. For a fixed number k, the condition \u201ceach row and each column contains k exactly once\u201d means that in the 3\u00d73 grid, the locations of k form a permutation matrix: exactly one occurrence in each row and each column. There are 3! = 6 ways to choose such positions for k.\n\nThe choices for different numbers are independent, since multiple numbers may share a cell and empty cells are allowed. Therefore, the total number of valid fillings is 6^4.\n\n6^4 = 1296.\n\n\\boxed{1296}"
+    },
+    {
+      "id": "hmmt_nov_2025_3",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "31",
+      "predicted": "31",
+      "is_correct": true,
+      "model_response": "Let f(x) = x^2 + ax + b. The equation |f(x)| = c is equivalent to the system:\n- f(x) = c  \u2192 x^2 + ax + (b - c) = 0\n- f(x) = -c \u2192 x^2 + ax + (b + c) = 0\n\nFor c > 0, the solution sets of these two equations are disjoint. To have exactly 3 distinct integer solutions, one quadratic must contribute two distinct integer roots and the other must contribute exactly one (a double root). A quadratic with integer coefficients has exactly one integer root only when it has a double root.\n\nAssume x^2 + ax + (b + c) = 0 has a double root r:\n- Then a = -2r and b + c = r^2.\n\nLet the other quadratic x^2 + ax + (b - c) = 0 have two distinct integer roots r \u00b1 d with d \u2260 0:\n- Then b - c = (r + d)(r - d) = r^2 - d^2.\n\nSubtracting these,\n(b + c) - (b - c) = r^2 - (r^2 - d^2) \u21d2 2c = d^2 \u21d2 c = d^2/2.\n\nFor c to be an integer, d must be even: write d = 2k with k \u2265 1. Then c = 2k^2.\n\nConversely, for any k \u2265 1, set c = 2k^2, choose any integer r, and define a = -2r, b = r^2 - c. Then:\n- x^2 + ax + (b + c) = (x - r)^2 (double root r),\n- x^2 + ax + (b - c) = (x - r - 2k)(x - r + 2k) (two distinct integer roots),\ngiving exactly 3 distinct integer solutions.\n\nThus the possible c are exactly those of the form c = 2k^2 with k \u2265 1. With c \u2264 2025:\n2k^2 \u2264 2025 \u21d2 k^2 \u2264 1012.5 \u21d2 k \u2264 31.\n\nTherefore, there are 31 possible values of c.\n\n\\boxed{31}"
+    },
+    {
+      "id": "hmmt_nov_2025_4",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "21",
+      "predicted": "21",
+      "is_correct": true,
+      "model_response": "Let the line be the x-axis. Place:\n- B at (0, 0), C at (10, 0), so BC = 10.\n- A at (-a, 0) where a = AB > 0, and D at (10 + d, 0) where d = CD > 0.\n- Since AD = AB + BC + CD = 39, we have a + d = 29.\n\nBecause triangle BEC is equilateral with BC = 10, the point E is at the midpoint of BC with height 5\u221a3:\nE = (5, 5\u221a3). Let h = 5\u221a3 so h^2 = 75.\n\nVectors from E:\nEA = (-(a+5), -h), ED = (5 + d, -h).\nLet X = a + 5 and Y = 5 + d. Then X + Y = (a + 5) + (5 + d) = (a + d) + 10 = 39.\n\nThe angle condition \u2220AED = 120\u00b0 gives\ncos(\u2220AED) = (EA \u22c5 ED)/(|EA||ED|) = -1/2.\n\nCompute:\nEA \u22c5 ED = -(a+5)(5+d) + h^2 = -XY + 75,\n|EA|^2 = X^2 + 75, |ED|^2 = Y^2 + 75.\n\nThus:\n(-XY + 75)/\u221a((X^2 + 75)(Y^2 + 75)) = -1/2.\n\nSquaring and simplifying yields:\nX^2Y^2 - 25(X^2 + Y^2) - 200XY + 5625 = 0.\n\nWith S = X + Y = 39 and P = XY, use X^2 + Y^2 = S^2 - 2P:\nP^2 - 25(S^2 - 2P) - 200P + 5625 = 0\n\u21d2 P^2 - 150P - 32400 = 0\n\u21d2 P = 270 (discarding the negative root).\n\nSo X and Y solve t^2 - 39t + 270 = 0, giving {X, Y} = {30, 9}.\nThus {a, d} = {25, 4}.\n\nTherefore |AB \u2212 CD| = |a \u2212 d| = |25 \u2212 4| = 21.\n\n\\boxed{21}"
+    },
+    {
+      "id": "hmmt_nov_2025_5",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "81920",
+      "predicted": "81920",
+      "is_correct": true,
+      "model_response": "We can only increase x or y, so the projection of any valid path onto the xy-plane is a monotone lattice path from (0,0) to (3,3). There are C(6,3) = 20 such xy-paths.\n\nAlong any fixed (x,y), Kelvin may move in z by \u00b11 but cannot revisit a point. Hence, at each (x,y), the z-moves must be monotone (otherwise he would immediately return to a previously visited point at that same (x,y)). From any starting z \u2208 {0,1,2,3}, a monotone vertical run can reach any target z' \u2208 {0,1,2,3} in exactly one way (a straight sequence of up or down steps staying within [0,3]).\n\nFix an xy-path. It visits 7 vertices v_0,\u2026,v_6. Starting at v_0 with z=0, before each of the first 6 xy-steps we may choose the z level to leave at arbitrarily among the 4 options {0,1,2,3}; this determines the monotone vertical run uniquely at that vertex. Thus there are 4^6 choices for the z-levels after each of the first 6 xy-steps. Upon reaching v_6, we then adjust monotonically to z=3 in a unique way. No 3D point is revisited because all (x,y) are distinct along a monotone xy-path.\n\nTherefore, total paths = number of xy-paths \u00d7 4^6 = 20 \u00d7 4096 = 81920.\n\n\\boxed{81920}"
+    },
+    {
+      "id": "hmmt_nov_2025_6",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "1305",
+      "predicted": "1320",
+      "is_correct": false,
+      "model_response": "Let \u03c4(n) be the number of positive divisors of n. Pair divisors as d and n/d. Then:\n- d < n/100 if and only if n/d > 100.\n- Therefore, the number of divisors d with d \u2265 n/100 equals the number of divisors of n that are \u2264 100.\n\nLet s(n) be the number of divisors of n that are \u2264 100. The condition \u201cstrictly more than 99% of divisors are strictly less than 1% of n\u201d becomes:\n\u03c4(n) \u2212 s(n) > 0.99 \u03c4(n) \u21d4 s(n) < 0.01 \u03c4(n).\n\nWe need a multiple of 2000. Write M = 2^a 5^b \u00d7 L with a \u2265 4, b \u2265 3. To minimize s(M), avoid introducing any additional small primes (\u2264 100), so take a = 4, b = 3 and let all primes in L be > 100. Then s(M) equals the number of divisors of 2^4 5^3 that are \u2264 100.\n\nCount those:\n- b = 0: 2^a \u2264 100 \u21d2 a = 0..4 \u2192 5 divisors.\n- b = 1: 5\u00b72^a \u2264 100 \u21d2 2^a \u2264 20 \u21d2 a = 0..4 \u2192 5 divisors.\n- b = 2: 25\u00b72^a \u2264 100 \u21d2 2^a \u2264 4 \u21d2 a = 0..2 \u2192 3 divisors.\n- b = 3: 125\u00b72^a \u2264 100 \u2192 none.\n\nSo s(M) = 5 + 5 + 3 = 13, and this is minimal for any multiple of 2000.\n\nThus we need s(M) < 0.01 \u03c4(M) \u21d2 13 < 0.01 \u03c4(M) \u21d2 \u03c4(M) > 1300.\n\nAlso \u03c4(M) = (4+1)(3+1)\u00b7\u03a0(e_i+1) = 20\u00b7K, where K = \u03a0(e_i+1) from primes in L. Hence \u03c4(M) must be a multiple of 20 and strictly greater than 1300, so the minimum is \u03c4(M) = 1320 (take K = 66).\n\nThis is achievable, e.g., M = 2^4\u00b75^3\u00b7p^{65} with any prime p > 100 (so no new divisors \u2264 100 are introduced), yielding \u03c4(M) = 20\u00b7(65+1) = 1320.\n\nTherefore, the minimum possible number of positive divisors of M is 1320.\n\n\\boxed{1320}"
+    },
+    {
+      "id": "hmmt_nov_2025_7",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "200",
+      "predicted": "200",
+      "is_correct": true,
+      "model_response": "Let the two common external tangents \u21131 and \u21132 meet at H. Orient coordinates so that H is at the origin, \u21131 and \u21132 are rays at angles \u00b1\u03b1 from the x-axis, and the angle bisector is the x-axis. Then the centers O1, O2 of the circles lie at (d1, 0) and (d2, 0), and their radii are r_i = d_i sin \u03b1. The points of tangency on each line are at distance s_i = d_i cos \u03b1 from H, so the quadrilateral U1U2V2V1 is a trapezoid whose bases have lengths 2 s1 sin \u03b1 and 2 s2 sin \u03b1, with distance between them equal to cos \u03b1 |s2 \u2212 s1|. Hence\nArea = (s1 + s2) sin \u03b1 cos \u03b1 \u00b7 |s2 \u2212 s1|.\n\nLet P = (x, y) be one intersection point of the circles. Since the circles are symmetric about the x-axis, PQ = 10 implies y = 5. The distances from P to \u21131 and \u21132 are\n|\u2212x sin \u03b1 + y cos \u03b1| = 3,  |x sin \u03b1 + y cos \u03b1| = 12.\nLet a = x sin \u03b1 and b = y cos \u03b1 = 5 cos \u03b1. Solving |\u2212a + b| = 3 and |a + b| = 12 gives a = 15/2 and b = 9/2, so cos \u03b1 = 9/10 and sin \u03b1 = \u221a19/10. Then x = a / sin \u03b1 = 75 / \u221a19.\n\nFor a circle tangent to both lines at distance s from H, the condition that P lies on the circle gives\ns^2 \u2212 2 (x/ cos \u03b1) s + (x^2 + y^2) = 0,\nso s1 + s2 = 2x / cos \u03b1 and s1 s2 = x^2 + y^2. Compute:\ns1 + s2 = 2(75/\u221a19)/(9/10) = 500/(3\u221a19),\ns1 s2 = (75^2/19) + 25 = 6100/19.\nThus\n(s2 \u2212 s1)^2 = (s1 + s2)^2 \u2212 4 s1 s2 = 250000/171 \u2212 219600/171 = 30400/171 = (40/3)^2,\nso |s2 \u2212 s1| = 40/3.\n\nFinally, the area simplifies to\nArea = (s1 + s2) sin \u03b1 cos \u03b1 \u00b7 |s2 \u2212 s1|\n= (2x/ cos \u03b1) \u00b7 sin \u03b1 cos \u03b1 \u00b7 |s2 \u2212 s1|\n= 2 x sin \u03b1 \u00b7 |s2 \u2212 s1|\n= 2 \u00b7 (15/2) \u00b7 (40/3) = 200.\n\n\\boxed{200}"
+    },
+    {
+      "id": "hmmt_nov_2025_8",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "1/91",
+      "predicted": "1",
+      "is_correct": false,
+      "model_response": "Let S1 = a + b + c, S2 = ab + bc + ca, and S3 = abc.\n\nFrom (10a + b)(10a + c) = a + 1/a, we expand the left side:\n100a^2 + 10a(b + c) + bc = a + 1/a.\n\nUsing b + c = S1 - a and bc = S3/a, we get:\n100a^2 + 10a(S1 - a) + S3/a = a + 1/a\n=> 90a^2 + 10S1 a + S3/a = a + 1/a.\n\nMultiplying by a (valid since a \u2260 0):\n90a^3 + 10S1 a^2 + S3 = a^2 + 1\n=> 90a^3 + (10S1 - 1)a^2 + (S3 - 1) = 0.\n\nThe same holds for b and c, so a, b, c are the roots of\n90x^3 + (10S1 - 1)x^2 + 0\u00b7x + (S3 - 1) = 0.\n\nBut a, b, c also satisfy their monic cubic:\nx^3 - S1 x^2 + S2 x - S3 = 0.\n\nThus the two polynomials are proportional: there exists k with\nk(x^3 - S1 x^2 + S2 x - S3) = 90x^3 + (10S1 - 1)x^2 + 0\u00b7x + (S3 - 1).\n\nEquating coefficients:\n- From x^3: k = 90.\n- From x^2: -kS1 = 10S1 - 1 \u21d2 -90S1 = 10S1 - 1 \u21d2 100S1 = 1 \u21d2 S1 = 1/100.\n- From x: kS2 = 0 \u21d2 90S2 = 0 \u21d2 S2 = 0.\n- From constant: -kS3 = S3 - 1 \u21d2 -90S3 = S3 - 1 \u21d2 -91S3 = -1 \u21d2 S3 = 1/91.\n\nTherefore, abc = S3 = 1/91.\n\n\\boxed{ \\tfrac{1}{91} }"
+    },
+    {
+      "id": "hmmt_nov_2025_9",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "372",
+      "predicted": null,
+      "is_correct": false,
+      "model_response": "Error: ",
+      "error": true
+    },
+    {
+      "id": "hmmt_nov_2025_10",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "79",
+      "predicted": "79",
+      "is_correct": true,
+      "model_response": "Let g be the initial volume (in liters) of gallium in flask B. After pouring from A into B until full, B contains:\n- Mercury: 1 \u2212 g liters\n- Gallium: g liters\nSo the concentration of mercury in B is 1 \u2212 g.\n\nAfter mixing, Mark pours 1 \u2212 g liters back into A. Removing a well-mixed portion does not change B\u2019s concentration, so the mixture remaining in B still has mercury fraction 1 \u2212 g. We are told this is 30%, so:\n1 \u2212 g = 0.30 \u21d2 g = 0.70.\n\nFlask A initially has 1 liter mercury and loses 1 \u2212 g = 0.30 liters, leaving g = 0.70 liters of mercury. It then receives 1 \u2212 g = 0.30 liters of mixture that is 30% mercury, adding 0.30 \u00d7 0.30 = 0.09 liters of mercury.\n\nThus final mercury in A = 0.70 + 0.09 = 0.79 liters, i.e., 79%.\n\n\\boxed{79}"
+    },
+    {
+      "id": "hmmt_nov_2025_11",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "5",
+      "predicted": "5",
+      "is_correct": true,
+      "model_response": "Let x be the number of moons that are blue, icy, and large.\n\nPartition the moons into the 7 nonempty regions of the Venn diagram for blue (B), icy (I), and large (L). The quantities given are:\n- Blue but not icy: a + e = 10\n- Icy but not large: b + d = 8\n- Large but not blue: c + f = 6\n\nThe sum of these three counts is a + b + c + d + e + f = 24. Since every moon has at least one property, the total number in all seven regions is 29, so the remaining region (the triple intersection) has size:\nx = 29 \u2212 (a + b + c + d + e + f) = 29 \u2212 24 = 5.\n\nTherefore, the number of moons that are simultaneously blue, icy, and large is \\boxed{5}."
+    },
+    {
+      "id": "hmmt_nov_2025_12",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "36",
+      "predicted": "36",
+      "is_correct": true,
+      "model_response": "Let U = (0, 0), N = (a, 0). Since UN \u2225 SE and [SUN] = 24, put S = (s, b), E = (e, b) with b > 0 and\na b = 48.\n\nBecause NV \u2225 SU and SU = U \u2212 S = (\u2212s, \u2212b), there exists \u03bb such that\nV = N + \u03bb(s, b) = (a + \u03bb s, \u03bb b).\n\nCompute the pentagon area using the shoelace formula for V \u2192 E \u2192 N \u2192 U \u2192 S:\n2[VENUS] = V\u00d7E + E\u00d7N + N\u00d7U + U\u00d7S + S\u00d7V.\nHere N\u00d7U = U\u00d7S = 0, and\nE\u00d7N = \u2212ab = \u221248,  S\u00d7V = \u2212ab = \u221248,\nV\u00d7E = (a + \u03bb s)\u00b7b \u2212 (\u03bb b)\u00b7e = ab + \u03bb b (s \u2212 e) = 48 + \u03bb b (s \u2212 e).\n\nThus\n2\u00b784 = |(48 + \u03bb b (s \u2212 e)) \u2212 48 \u2212 48| = |\u03bb b (s \u2212 e) \u2212 48|,\nso |\u03bb b (s \u2212 e) \u2212 48| = 168, giving \u03bb b (s \u2212 e) \u2208 {216, \u2212120}.\n\nNow [EUV] = (1/2)|V\u00d7E| = (1/2)|48 + \u03bb b (s \u2212 e)|.\nHence [EUV] \u2208 {132, 36}.\n\nBut in a convex pentagon, the triangle formed by any three vertices lies inside the pentagon, so [EUV] \u2264 [VENUS] = 84. Therefore 132 is impossible, and the only feasible value is 36. This value is attainable (e.g., take a = 12, b = 4, e = 2, s = 10, \u03bb = \u221215/4).\n\nTherefore, the maximum possible area of triangle EUV is 36.\n\n\\boxed{36}"
+    },
+    {
+      "id": "hmmt_nov_2025_13",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "99774",
+      "predicted": "99774",
+      "is_correct": true,
+      "model_response": "Let c1, c2, c3, c4 be the carries from ones to tens, tens to hundreds, hundreds to thousands, and thousands to ten-thousands, respectively.\n\nFrom the addition:\n\n1) Ones: R + T = H + 10c1.\n2) Tens: E + R + c1 = T + 10c2.\n3) Hundreds: T + A + c2 = R + 10c3.\n4) Thousands: A + E + c3 = A + 10c4 \u21d2 E + c3 = 10c4.\n5) Ten-thousands: H + H + c4 = E.\n\nSince E must be nonzero and E + c3 = 10c4, the only possibility is c4 = 1, c3 = 1, E = 9. Then from (5): 2H + 1 = 9 \u21d2 H = 4.\n\nNow use (1)\u2013(3). From (1), R + T = 4 + 10c1. If c1 = 0, then R + T = 4, and (2) gives 9 + R = T + 10c2, which yields no integer solution. So c1 = 1, hence R + T = 14.\n\nThen (2) gives 9 + R + 1 = T + 10c2 \u21d2 10 + R = T + 10c2. Since T \u2264 9, we must have c2 = 1, so T = R. With R + T = 14, we get R = T = 7.\n\nFinally, (3): T + A + c2 = R + 10c3 \u21d2 7 + A + 1 = 7 + 10 \u21d2 A = 9.\n\nThus E = 9, A = 9, R = 7, T = 7, H = 4. Therefore,\nEARTH = 99774.\n\n\\boxed{99774}"
+    },
+    {
+      "id": "hmmt_nov_2025_14",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "495",
+      "predicted": "495",
+      "is_correct": true,
+      "model_response": "Let the string be divided into 10 blocks: block i contains S_i, U_i, N_i in that order.\n\nWe need to pick letters S, U, N, S in increasing position order. If the final S is S_d from block d, then the N must come from some block c \u2264 d\u22121, the U from some block b \u2264 c, and the first S from some block a \u2264 b. Hence 1 \u2264 a \u2264 b \u2264 c < d \u2264 10.\n\nFor a fixed d, the number of choices of (a,b,c) with 1 \u2264 a \u2264 b \u2264 c \u2264 d\u22121 is the number of multisets of size 3 from d\u22121 types, which is C(d+1, 3). Summing over d = 2 to 10 gives:\nsum_{d=2}^{10} C(d+1, 3) = sum_{t=3}^{11} C(t, 3) = C(12, 4) = 495.\n\nTherefore, the number of ways is 495.\n\n\\boxed{495}"
+    },
+    {
+      "id": "hmmt_nov_2025_15",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "5\\pi + 6\\sqrt{3}",
+      "predicted": null,
+      "is_correct": false,
+      "model_response": "Error: ",
+      "error": true
+    },
+    {
+      "id": "hmmt_nov_2025_16",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "7350",
+      "predicted": "350",
+      "is_correct": false,
+      "model_response": "Let A, B, C be the sets of full-moon times (in [0,1)) for Io, Europa, and Ganymede. Then:\n- |A| = I, |B| = E, |C| = G.\n- |A \u2229 B| = gcd(I,E) = a, |B \u2229 C| = gcd(E,G) = b, |C \u2229 A| = gcd(G,I) = c.\n- |A \u2229 B \u2229 C| = gcd(I,E,G) = t.\n\nGiven:\n1) |A \u222a B \u222a C| = I + E + G \u2212 (a + b + c) + t = 54.\n2) The number of times with at least two full moons is |(A\u2229B) \u222a (B\u2229C) \u222a (C\u2229A)| = a + b + c \u2212 2t = 11.\n3) t \u2265 1 (indeed t = gcd(I,E,G)).\n\nFrom (2): a + b + c \u2212 2t = 11 \u21d2 (a + b + c) = 11 + 2t.\nPlug into (1): I + E + G \u2212 (11 + 2t) + t = 54 \u21d2 I + E + G = 65 + t.\n\nWrite a = t a', b = t b', c = t c' with t = gcd(I,E,G). Then (2) gives\nt(a' + b' + c' \u2212 2) = 11.\nHence t = 1 or 11.\n\n- If t = 11, then I, E, G are multiples of 11, so I + E + G is a multiple of 11, contradicting I + E + G = 65 + 11 = 76. Thus t = 1.\n\nTherefore a + b + c = 13 and I + E + G = 66, with gcd(I,E,G) = 1.\n\nStandard structure for three integers with pairwise gcds a, b, c and triple gcd 1 is\nI = acx, E = aby, G = bcz,\nwhere a, b, c are pairwise coprime, and x, y, z are positive integers pairwise coprime and coprime to abc. Then\nI + E + G = acx + aby + bcz = 66 and a + b + c = 13.\n\nThe only pairwise-coprime triples summing to 13 are {1,1,11} and {1,5,7}.\n- For {1,1,11}, the sum equation forces y \u2261 0 mod 11, impossible since y must be coprime to 11. So discard.\n- For {1,5,7}, w.l.o.g. take (a,b,c) = (1,5,7): then 7x + 5y + 35z = 66. The only positive solution (respecting coprimality) is (x,y,z) = (3,2,1), yielding (I,E,G) = (21,10,35) up to permutation.\n\nThus I\u00b7E\u00b7G = 21\u00b710\u00b735 = 7350, so the AIME answer (mod 1000) is 350.\n\nFinal answer: \\boxed{350}"
+    },
+    {
+      "id": "hmmt_nov_2025_17",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "8.5",
+      "predicted": "7",
+      "is_correct": false,
+      "model_response": "Set coordinates:\n- Let R = (11, 0), S = (-11, 0), and let MA be horizontal at y = h with length 11.\n- Let M = (m, h), A = (m + 11, h).\n- Given AR = 17 and SM = 16:\n  - (m + 11 \u2212 11)^2 + h^2 = m^2 + h^2 = 289\n  - (m \u2212 (\u221211))^2 + h^2 = (m + 11)^2 + h^2 = 256\n  Subtracting gives 22m + 121 = \u221233 \u21d2 m = \u22127, and then h^2 = 289 \u2212 49 = 240.\n\nLet X = (t, h). Consider the circumcircles \u03c91 of triangle MXS and \u03c92 of triangle AXR. The common chord (radical axis) passes through the midpoint T of RS, which is T = (0, 0). Thus Pow\u03c91(T) = Pow\u03c92(T).\n\nCompute centers via perpendicular bisectors:\n- For \u03c91 (through M(\u22127,h), X(t,h), S(\u221211,0)):\n  - Perp. bisector of MX: x = (t \u2212 7)/2.\n  - Perp. bisector of MS: through (\u22129, h/2) with slope \u22124/h.\n  - Center O1 = ( (t \u2212 7)/2, h/2 \u2212 (2/h)(t + 11) ).\n\n- For \u03c92 (through A(4,h), X(t,h), R(11,0)):\n  - Perp. bisector of AX: x = (t + 4)/2.\n  - Perp. bisector of AR: through (7.5, h/2) with slope 7/h.\n  - Center O2 = ( (t + 4)/2, h/2 + (7/(2h))(t \u2212 11) ).\n\nPower at T = (0,0) satisfies Pow\u03c9(T) = OT^2 \u2212 r^2 = 2 O\u00b7U \u2212 ||U||^2 when U is any point on the circle and T is the origin.\n\nThus:\n- Pow\u03c91(T) = 2 O1\u00b7M \u2212 ||M||^2.\n  Compute O1\u00b7M:\n  O1\u00b7M = [ (t \u2212 7)/2 ](\u22127) + [ h/2 \u2212 (2/h)(t + 11) ]h\n        = (\u22127t + 49)/2 + 120 \u2212 2t \u2212 22\n        = (245 \u2212 11t)/2.\n  Hence Pow\u03c91(T) = (245 \u2212 11t) \u2212 289 = \u221244 \u2212 11t.\n\n- Pow\u03c92(T) = 2 O2\u00b7A \u2212 ||A||^2.\n  Compute O2\u00b7A:\n  O2\u00b7A = [ (t + 4)/2 ](4) + [ h/2 + (7/(2h))(t \u2212 11) ]h\n        = 2t + 8 + 120 + (7/2)(t \u2212 11)\n        = (11t + 179)/2.\n  Hence Pow\u03c92(T) = (11t + 179) \u2212 256 = 11t \u2212 77.\n\nSet equal: \u221244 \u2212 11t = 11t \u2212 77 \u21d2 22t = 33 \u21d2 t = 3/2.\n\nTherefore MX = |t \u2212 (\u22127)| = 7 + 3/2 = 17/2.\n\nFinal answer: \\boxed{17/2}"
+    },
+    {
+      "id": "hmmt_nov_2025_18",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "91/6",
+      "predicted": null,
+      "is_correct": false,
+      "model_response": "Error: ",
+      "error": true
+    },
+    {
+      "id": "hmmt_nov_2025_19",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "\\frac{sqrt{7} + 1}{2}",
+      "predicted": "1",
+      "is_correct": false,
+      "model_response": "Let the quadrics be written as quadratic forms x^T A x = 20 and x^T B x = 25 with\n- A = [[1, 1/2], [1/2, 1]] for x^2 + xy + y^2,\n- B = [[2, -1/2], [-1/2, 1]] for 2x^2 - xy + y^2.\n\nSince both ellipses are centered at the origin, their four intersection points form a parallelogram centered at the origin. The directions of its sides are the generalized eigenvectors v satisfying\nA v = \u03bb B v.\n\nSolve det(A \u2212 \u03bb B) = 0:\nA \u2212 \u03bb B = [[1 \u2212 2\u03bb, (1 + \u03bb)/2], [(1 + \u03bb)/2, 1 \u2212 \u03bb]].\nIts determinant is\n(1 \u2212 2\u03bb)(1 \u2212 \u03bb) \u2212 ((1 + \u03bb)/2)^2 = 0\n\u21d2 7\u03bb^2 \u2212 14\u03bb + 3 = 0\n\u21d2 \u03bb = 1 \u00b1 2/\u221a7.\n\nFor each \u03bb, an eigenvector slope m = y/x follows from\n(1 \u2212 2\u03bb)x + ((1 + \u03bb)/2)y = 0 \u21d2 m = y/x = \u22122(1 \u2212 2\u03bb)/(1 + \u03bb).\n\nSubstitute:\n- For \u03bb = 1 + 2/\u221a7: m = (1 + \u221a7)/2.\n- For \u03bb = 1 \u2212 2/\u221a7: m = (1 \u2212 \u221a7)/2.\n\nThus the two side slopes are (1 \u00b1 \u221a7)/2, and the largest is (1 + \u221a7)/2.\n\n\\boxed{\\frac{1+\\sqrt{7}}{2}}"
+    },
+    {
+      "id": "hmmt_nov_2025_20",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "238",
+      "predicted": "238",
+      "is_correct": true,
+      "model_response": "We consider partitions of an 8\u00d78 square into exactly three axis-aligned rectangles with integer side lengths. Any such partition must be formed by two axis-aligned line segments along grid lines. There are only two possible topological types:\n\n1) Two parallel full cuts:\n- Both cuts are vertical (or both horizontal), across the entire square, yielding three strips.\n- Choose two distinct interior grid lines from 7: C(7,2) = 21 vertical choices, and similarly 21 horizontal.\n- Total for this case: 21 + 21 = 42.\n\n2) T-shaped partition:\n- One full cut across the square (vertical or horizontal), and one perpendicular partial cut from the boundary to the full cut.\n- If the full cut is vertical: 7 choices for its position, 7 choices for the horizontal cut\u2019s y-level, and 2 choices for which side (left or right) the partial cut comes from: 7\u00b77\u00b72 = 98.\n- Similarly, with a horizontal full cut: another 98.\n- Total for this case: 98 + 98 = 196.\n\nAdding both cases: 42 + 196 = 238.\n\nTherefore, the number of ways is \\boxed{238}."
+    },
+    {
+      "id": "hmmt_nov_2025_21",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "855",
+      "predicted": null,
+      "is_correct": false,
+      "model_response": "Error: ",
+      "error": true
+    },
+    {
+      "id": "hmmt_nov_2025_22",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "\\sqrt{3} - 1",
+      "predicted": "2",
+      "is_correct": false,
+      "model_response": "Let ABCD be the unit square with A(0,0), B(1,0), C(1,1), D(0,1). Let E lie on BC, so E = (1,e) with 0 < e < 1. In the square CEFG, CE is vertical downward, so its side length is s = CE = 1 \u2212 e. With the correct orientation to satisfy \u201cC lies on segment DG,\u201d we have F = (1+s, e) and G = (1+s, 1).\n\nLet O be the circumcenter of triangle AEG. The condition that A, D, O are collinear means O lies on the line x = 0. The circumcenter is the intersection of perpendicular bisectors of AE and AG.\n\n- Perpendicular bisector of AE:\n  Midpoint M1 = (1/2, e/2), slope of AE is e, so perpendicular slope is \u22121/e.\n  Equation: y = \u2212(1/e)x + (e^2 + 1)/(2e).\n\n- Perpendicular bisector of AG:\n  Midpoint M2 = ((1+s)/2, 1/2), slope of AG is 1/(1+s), so perpendicular slope is \u2212(1+s).\n  Equation: y = \u2212(1+s)x + (s^2 + 2s + 2)/2.\n\nFor their intersection to have x = 0, the y-intercepts must be equal:\n(e^2 + 1)/(2e) = (s^2 + 2s + 2)/2\n\u21d4 e + 1/e = (s+1)^2 + 1.\n\nSince s = 1 \u2212 e, this becomes\ne + 1/e = (2 \u2212 e)^2 + 1 = e^2 \u2212 4e + 5\n\u21d4 e^3 \u2212 5e^2 + 5e \u2212 1 = 0\n\u21d4 (e \u2212 1)(e^2 \u2212 4e + 1) = 0.\n\nThe valid solution in (0,1) is e = 2 \u2212 \u221a3, hence s = 1 \u2212 e = \u221a3 \u2212 1. Therefore, FG = s = \u221a3 \u2212 1.\n\n\\boxed{\\sqrt{3}-1}"
+    },
+    {
+      "id": "hmmt_nov_2025_23",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "3069",
+      "predicted": "3069",
+      "is_correct": true,
+      "model_response": "Write n in binary. Group bits into pairs (from LSB) to form base-4 digits. Let:\n- E = number of 1s in even positions (0, 2, 4, 6, 8)\n- O = number of 1s in odd positions (1, 3, 5, 7, 9)\n\nThen:\n- s2(n) = E + O\n- s4(n) = E + 2O\n\nThe condition s2(n) = sqrt(s4(n)) becomes:\nE + O = w and E + 2O = w^2 for some integer w.\nSubtracting gives O = w^2 \u2212 w and E = 2w \u2212 w^2.\n\nSince n < 1000 < 1024, there are only 10 bit positions (0 to 9), with 5 odd positions, so O \u2264 5. Check w:\n- w = 1: O = 0, E = 1. Exactly one 1-bit, and it must be at an even position \u21d2 n \u2208 {2^0, 2^2, 2^4, 2^6, 2^8} = {1, 4, 16, 64, 256}.\n- w = 2: O = 2, E = 0. Exactly two 1-bits, both at odd positions \u21d2 choose two from {1,3,5,7,9}, giving numbers 2^i + 2^j for i < j in {1,3,5,7,9}.\n- w = 3: O = 6 (impossible since only 5 odd positions). No solutions for w \u2265 3.\n\nAll such numbers are < 1000. Compute the sum:\n\n- Sum for w = 1: 1 + 4 + 16 + 64 + 256 = 341.\n- For w = 2: The set {2, 8, 32, 128, 512}. Sum of all pairwise sums = 4 \u00d7 (2 + 8 + 32 + 128 + 512) = 4 \u00d7 682 = 2728.\n\nTotal sum = 341 + 2728 = 3069.\n\n\\boxed{3069}"
+    },
+    {
+      "id": "hmmt_nov_2025_24",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "175",
+      "predicted": "175",
+      "is_correct": true,
+      "model_response": "Let T be the total number of monotone paths from the bottom-left cell to the top-right cell in a 6\u00d76 grid of cells.\n\n- From (1,1) to (6,6) requires 5 up and 5 right moves, so T = C(10,5) = 252.\n\nLet P(c) be the number of such paths that pass through a given cell c. If the raccoon occupies c, the number of valid paths is T \u2212 P(c) (this holds even for the start/end cells since P equals T there, giving 0).\n\nThe expected number of valid paths is:\nE = (1/36) \u2211_c (T \u2212 P(c)) = T \u2212 (1/36) \u2211_c P(c).\n\nDouble count \u2211_c P(c):\n- Each path visits exactly 11 cells (start plus 10 moves).\n- There are T paths.\nSo \u2211_c P(c) = 11T = 11 \u00d7 252 = 2772.\n\nTherefore,\nE = 252 \u2212 2772/36 = 252 \u2212 77 = 175.\n\n\\boxed{175}"
+    },
+    {
+      "id": "hmmt_nov_2025_25",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "96-10\\sqrt{21}",
+      "predicted": null,
+      "is_correct": false,
+      "model_response": "Error: ",
+      "error": true
+    },
+    {
+      "id": "hmmt_nov_2025_26",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "5940",
+      "predicted": null,
+      "is_correct": false,
+      "model_response": "Error: ",
+      "error": true
+    },
+    {
+      "id": "hmmt_nov_2025_27",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "254",
+      "predicted": null,
+      "is_correct": false,
+      "model_response": "Error: ",
+      "error": true
+    },
+    {
+      "id": "hmmt_nov_2025_28",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "199/8",
+      "predicted": "199",
+      "is_correct": false,
+      "model_response": "Let x = sqrt(a), y = sqrt(b), z = sqrt(c). Then:\n- x + y + z = 7\n- sqrt(x^2+1) + sqrt(y^2+1) + sqrt(z^2+1) = 8\n- Define u_i = sqrt(x_i^2+1) + x_i for i = 1,2,3. Then (u1)(u2)(u3) = 60.\n\nNote that sqrt(x^2+1) \u2212 x = 1/u, and\n- sqrt(x^2+1) = (u + 1/u)/2\n- x = (u \u2212 1/u)/2.\n\nFrom the sums:\n- Sum u = (sum sqrt + sum x) = 8 + 7 = 15\n- Sum 1/u = (sum sqrt \u2212 sum x) = 8 \u2212 7 = 1.\n\nAlso, with product u1 u2 u3 = 60, we get\n- Sum pairwise u_i u_j = (u1 u2 u3)(sum 1/u) = 60\n- Hence sum u^2 = (sum u)^2 \u2212 2(sum pairwise) = 15^2 \u2212 2\u00b760 = 105\n- For reciprocals: sum 1/(u_i u_j) = (sum u)/(product) = 15/60 = 1/4, so\n  sum 1/u^2 = (sum 1/u)^2 \u2212 2\u00b7sum 1/(u_i u_j) = 1 \u2212 2\u00b7(1/4) = 1/2.\n\nNow a + b + c = x^2 + y^2 + z^2, and x^2 = ((u \u2212 1/u)/2)^2 = (u^2 + 1/u^2 \u2212 2)/4. Thus\na + b + c = (sum u^2 + sum 1/u^2 \u2212 6)/4 = (105 + 1/2 \u2212 6)/4 = 199/8.\n\nTherefore, a + b + c = 199/8.\n\n\\boxed{199/8}"
+    },
+    {
+      "id": "hmmt_nov_2025_29",
+      "source": "hmmt_nov_2025",
+      "ground_truth": "\\frac{3\\sqrt{5}}{7}",
+      "predicted": null,
+      "is_correct": false,
+      "model_response": "Error: ",
+      "error": true
+    }
+  ]
+}
