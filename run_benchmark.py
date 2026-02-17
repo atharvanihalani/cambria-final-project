@@ -396,7 +396,7 @@ async def evaluate_benchmark(dataset_name: str):
     }
 
     model_name = SCORER_MODEL.replace("/", "_")
-    output_file = f'results/benchmark_{dataset_name}_{model_name}.json'
+    output_file = f'results/benchmark/benchmark_{dataset_name}_{model_name}.json'
     with open(output_file, "w") as f:
         json.dump(output, f, indent=2)
     print(f"  Saved to: {output_file}")
